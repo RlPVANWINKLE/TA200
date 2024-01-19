@@ -6,8 +6,6 @@ import { Component} from '@angular/core';
   styleUrls: ['./ftwebster.component.scss']
 })
 export class FTWebsterComponent {
+public kind : any = 'IP';
 
-  radiochange(kind:string){
-    
-  }
 }

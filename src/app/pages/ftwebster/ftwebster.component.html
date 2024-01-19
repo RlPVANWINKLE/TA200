@@ -4,13 +4,13 @@
         <div style="display: inline-block; width: 50%;"><button style="width: 100%; padding: 10px;">Connect</button></div>
     </div>
     <div style="width: 330px; padding: 10px; margin-top: 10px; border: 1px solid skyblue; ">
-        <div class="w-25" style="display: inline-block;"><input type="radio" id="radioIP" name="radio" checked="checked" (click)="radiochange('IP')"> IP</div>
-        <div class="w-25" style="display: inline-block;"><input type="radio" id="radioURL" name="radio" (click)="radiochange('URL')"> URL</div>
-        <div class="IPclass" id="IPclass">
+        <div class="w-25" style="display: inline-block;"><input type="radio" id="radioIP" name="radio" checked="checked" (click)="kind = 'IP'"> IP</div>
+        <div class="w-25" style="display: inline-block;"><input type="radio" id="radioURL" name="radio" (click)="kind = 'URL'"> URL</div>
+        <div class="IPclass" id="IPid" *ngIf="kind == 'IP'">
             <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server IP: </p><input type="text" id="ip" name="ip" value="192.168.1.201" size="20" ></div>
             <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server Port: </p><input type="text" size="1" value="80"></div>
         </div>
-        <div class="URLclass" style="display: none;" id="URLclass">
+        <div class="URLclass" id="URLid" *ngIf="kind == 'URL'">
             <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server URL: </p><input type="text" id="ip" name="ip" value="192.168.1.201" size="20" ></div>
             <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server Port: </p><input type="text" size="1" value="80"></div>
             <div style="text-align: start;"><p style="display: inline-block; width: 110px;"><input type="checkbox"> DNS Server: </p><input type="text" size="10" value="8.8.8.8"></div>
