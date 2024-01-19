@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-screen',
@@ -8,7 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ScreenComponent implements OnInit{
   @Input()
   imageName!: string;
-  constructor(){}
+  constructor(
+    private _router: Router
+  ){}
   ngOnInit(): void {
     if (this.imageName) {
       this.imageName = "./assets/images/" + this.imageName;
@@ -18,6 +21,9 @@ export class ScreenComponent implements OnInit{
     alert("Scanner Click Test");
   }
   ftweb(){
-    window.open('https://bucolic-dasik-0b97fb.netlify.app/ftwebster', 'ftwebster', 'width=350px, height=400px');
+    // window.open('https://bucolic-dasik-0b97fb.netlify.app/ftwebster', 'ftwebster', 'width=350px, height=400px');
+    const url = this._router.serializeUrl(
+    this._router.createUrlTree(['/ftwebster']));
+    window.open(url, 'ftwebster', 'width=350px, height=400px');
   }
 }
