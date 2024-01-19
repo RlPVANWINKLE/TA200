@@ -1,1 +1,18 @@
-<p>ftwebster works!</p>
+<div style="padding: 10px;">
+    <div style="width: 330px;">
+        <div style="display:inline-block; width: 50%;">IP: <input type="text" id="ip" name="ip" value="192.168.1.201" size="10" ></div>
+        <div style="display: inline-block; width: 50%;"><button style="width: 100%; padding: 10px;">Connect</button></div>
+    </div>
+    <div style="width: 330px; padding: 10px; margin-top: 10px; border: 1px solid skyblue; ">
+        <div class="w-25" style="display: inline-block;"><input type="radio" id="radioIP" name="radio" checked="checked" (click)="radiochange('IP')"> IP</div>
+        <div class="w-25" style="display: inline-block;"><input type="radio" id="radioURL" name="radio" (click)="radiochange('URL')"> URL</div>
+        <div class="IPclass">
+            <div style="text-align: start;"><p style="display: inline-block; width: 100px;">Server IP: </p><input type="text" id="ip" name="ip" value="192.168.1.201" size="20" ></div>
+            <div style="text-align: start;"><p style="display: inline-block; width: 100px;">Server Port: </p><input type="text" size="1" value="80"></div>
+        </div>
+        <div class="URLclass">
+            <div style="text-align: start;"><p style="display: inline-block; width: 100px;">Server IP: </p><input type="text" id="ip" name="ip" value="192.168.1.201" size="20" ></div>
+            <div style="text-align: start;"><p style="display: inline-block; width: 100px;">Server Port: </p><input type="text" size="1" value="80"></div>
+        </div>
+    </div>
+</div>

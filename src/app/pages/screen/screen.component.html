@@ -6,5 +6,6 @@
     <div style="background-image: url({{imageName}}); background-repeat: no-repeat; background-size: 310px 230px;" class="selectiongrid">
         <ng-content style="position: absolute;" ></ng-content>
     </div>
-    <div class="yellow" onclick="location.href='./'"></div>
+    <div class="yellow" routerLink="/main"></div>
 </div>
+<button (click)="ftweb()" style="position: absolute;">Run An Update</button>
