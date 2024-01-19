@@ -14,7 +14,7 @@ import { FTWebsterComponent } from './pages/ftwebster/ftwebster.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'comm', component: CommComponent},
-  {path: 'main', component: MainComponent},
+  {path: '', component: MainComponent},
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
   {path: 'users/manage/edit', component: EditUserComponent}
