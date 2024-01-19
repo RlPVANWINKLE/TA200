@@ -18,6 +18,6 @@ export class ScreenComponent implements OnInit{
     alert("Scanner Click Test");
   }
   ftweb(){
-    window.open('/ftwebster', 'ftwebster', 'width=350px, height=400px');
+    window.open('https://bucolic-dasik-0b97fb.netlify.app/ftwebster', 'ftwebster', 'width=350px, height=400px');
   }
 }
