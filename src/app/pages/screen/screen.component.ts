@@ -22,8 +22,10 @@ export class ScreenComponent implements OnInit{
   }
   ftweb(){
     // window.open('https://bucolic-dasik-0b97fb.netlify.app/ftwebster', 'ftwebster', 'width=350px, height=400px');
-    this._router.navigate([]).then((result) => {
-      window.open('/ftwebster', 'ftwebster', 'resizable, width=200px, height=300px'); 
-    });
+    const url = this._router.serializeUrl(
+      this._router.createUrlTree([`/ftwebster/`])
+    );
+  
+    window.open(url, 'ftwebster', 'width=350px, height=400px');
   }
 }
