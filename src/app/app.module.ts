@@ -34,7 +34,7 @@ const routes:Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
