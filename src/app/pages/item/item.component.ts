@@ -12,7 +12,7 @@ export class ItemComponent implements OnInit {
   @Input()
   child!: string;
   @Input()
-  class!: string;
+  class: string = 'm-item';
   _parent = '';
   _child = '';
   constructor(
