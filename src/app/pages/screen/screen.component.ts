@@ -18,6 +18,6 @@ export class ScreenComponent implements OnInit{
     alert("Scanner Click Test");
   }
   ftweb(){
-    window.open('http://localhost:4200/ftwebster', 'ftwebster', 'width=350px, height=400px');
+    window.open(window.location.origin + '/ftwebster', 'ftwebster', 'width=350px, height=400px');
   }
 }
