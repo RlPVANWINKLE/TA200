@@ -18,6 +18,7 @@ import { SerialcommComponent } from './pages/comm/serialcomm/serialcomm.componen
 import { PcconnectionComponent } from './pages/comm/pcconnection/pcconnection.component';
 import { WirelessnetworkComponent } from './pages/comm/wirelessnetwork/wirelessnetwork.component';
 import { CloudserversettingComponent } from './pages/comm/cloudserversetting/cloudserversetting.component';
+import { SystemComponent } from './pages/system/system.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'comm', component: CommComponent},
@@ -26,6 +27,7 @@ const routes:Routes = [
   {path: 'pcconnection', component: PcconnectionComponent},
   {path: 'wirelessnetwork', component: WirelessnetworkComponent},
   {path: 'cloudserversetting', component: CloudserversettingComponent},
+  {path: 'system', component: SystemComponent},
   {path: '', component: MainComponent},
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
@@ -51,6 +53,7 @@ const routes:Routes = [
     PcconnectionComponent,
     WirelessnetworkComponent,
     CloudserversettingComponent,
+    SystemComponent,
   ],
   imports: [
     BrowserModule,
