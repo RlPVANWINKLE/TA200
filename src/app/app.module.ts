@@ -37,7 +37,7 @@ const routes:Routes = [
   {path: 'attendance', component: AttendanceComponent},
   {path: 'fingerprint', component: FingerprintComponent},
   {path: 'reset', component: ResetComponent},
-  {path: 'usbupgrade', component: UsbupgradeComponent},
+  // {path: 'usbupgrade', component: UsbupgradeComponent},
   {path: '', component: MainComponent},
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
