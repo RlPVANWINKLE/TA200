@@ -11,13 +11,26 @@ import { ItemComponent } from './pages/item/item.component';
 import { EditUserComponent } from './pages/users/manage/edit-user/edit-user.component';
 import { CommComponent } from './pages/comm/comm.component';
 import { FTWebsterComponent } from './pages/ftwebster/ftwebster.component';
+import { ListItemComponent } from './pages/list-item/list-item.component';
+import { ListItemNoIconComponent } from './pages/list-item-no-icon/list-item-no-icon.component';
+import { EthernetComponent } from './pages/comm/ethernet/ethernet.component';
+import { SerialcommComponent } from './pages/comm/serialcomm/serialcomm.component';
+import { PcconnectionComponent } from './pages/comm/pcconnection/pcconnection.component';
+import { WirelessnetworkComponent } from './pages/comm/wirelessnetwork/wirelessnetwork.component';
+import { CloudserversettingComponent } from './pages/comm/cloudserversetting/cloudserversetting.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'comm', component: CommComponent},
+  {path: 'ethernet', component: EthernetComponent},
+  {path: 'serialcomm', component: SerialcommComponent},
+  {path: 'pcconnection', component: PcconnectionComponent},
+  {path: 'wirelessnetwork', component: WirelessnetworkComponent},
+  {path: 'cloudserversetting', component: CloudserversettingComponent},
   {path: '', component: MainComponent},
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
-  {path: 'users/manage/edit', component: EditUserComponent}
+  {path: 'users/manage/edit', component: EditUserComponent},
+  
 ]
 
 @NgModule({
@@ -30,7 +43,14 @@ const routes:Routes = [
     ItemComponent,
     EditUserComponent,
     CommComponent,
-    FTWebsterComponent
+    FTWebsterComponent,
+    ListItemComponent,
+    ListItemNoIconComponent,
+    EthernetComponent,
+    SerialcommComponent,
+    PcconnectionComponent,
+    WirelessnetworkComponent,
+    CloudserversettingComponent,
   ],
   imports: [
     BrowserModule,

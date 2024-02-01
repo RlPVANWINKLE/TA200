@@ -1,26 +1,12 @@
-<app-screen
-[imageName]="'users.JPG'"
-    >
-    <div class="d-flex">
-        <app-item
-        [child]="''"
-        [parent]="''"
-        [class]="'m-item nope'"
-        ></app-item>
-        <app-item
-        [child]="'manage'"
-        [parent]="'users'"
-        [class]="'m-item'"
-        ></app-item>
-        <app-item
-        [child]="''"
-        [parent]="''"
-        [class]="'m-item nope'"
-        ></app-item>
-        <app-item
-        [child]="''"
-        [parent]="''"
-        [class]="'m-item nope'"
-        ></app-item>
-      </div>
+<app-screen>
+  <app-list-item
+  [Icon]="'fa-solid fa-users fa-2x'"
+  [Title]="'All Users'"
+  >
+  </app-list-item>
+  <app-list-item
+  [Icon]="'fa-sharp fa-solid fa-table-cells-large fa-2x'"
+  [Title]="'Display Styles'"
+  >
+  </app-list-item>
 </app-screen>

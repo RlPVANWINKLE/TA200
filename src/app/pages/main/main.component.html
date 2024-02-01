@@ -1,37 +1,63 @@
 <app-screen
-  imageName='main.JPG'
-  style="position: fixed;"
 >
-  <div class="d-flex">
+  <div class="d-flex" style="margin-left: 10px; margin-top: 10px;">
       <app-item
       [child]="'users'"
       [parent]="''"
-      [class]="'m-item'"
+      [class]="'m-item BGGreen p-2 m-1'"
+      [Icon]="'fa-solid fa-user fa-5x'"   
+      [Title] = "'User Mgt.'"   
+      ></app-item>
+      <app-item
+      [child]="'userrole'"
+      [parent]="''"
+      [class]="'m-item p-2  BGLBlue m-1'"
+      [Icon]="'fa-solid fa-unlock-keyhole fa-5x'"
+      [Title]="'User Role'"
       ></app-item>
       <app-item
       [child]="'comm'"
       [parent]="''"
-      [class]="'m-item'"
+      [class]="'m-item p-2  BGLGreen m-1'"
+      [Icon]="'fa-solid fa-plug fa-5x'"
+      [Title]="'COMM.'"
       ></app-item>
       <app-item
-      [class]="'m-item nope'"
-      ></app-item>
-      <app-item
-      [class]="'m-item nope'"
+      [child]="'system'"
+      [parent]="''"
+      [class]="'m-item p-2  BGRedOrange m-1'"
+      [Icon]="'fa-solid fa-gear fa-5x'"
+      [Title]="'System'"
       ></app-item>
     </div>
-    <div class="d-flex">
+    <div class="d-flex" style="margin-left: 10px;">
       <app-item
-      [class]="'m-item nope'"
+      [child]="'personalize'"
+      [parent]="''"
+      [class]="'m-item p-2  BGPurple m-1'"
+      [Icon]="'fa-solid fa-pencil fa-5x'"
+      [Title]="'Personalize'"
       ></app-item>
       <app-item
-      [class]="'m-item nope'"
+      [child]="'data'"
+      [parent]="''"
+      [class]="'m-item pt-3  BGBlue m-1'"
+      [Icon]="'fa-solid fa-folder-open fa-4x'"
+      [Title]="'Data Mgt.'"
       ></app-item>
       <app-item
-      [class]="'m-item nope'"
+      [child]="'usb'"
+      [parent]="''"
+      [class]="'m-item pt-3  BGGreen m-1'"
+      [Icon]="'fa-brands fa-usb fa-4x'"
+      [Title]="'USB Mgr.'"
       ></app-item>
       <app-item
-      [class]="'m-item nope'"
+      [child]="'attendance'"
+      [parent]="''"
+      [class]="'m-item p-2  BGYellow m-1'"
+      [Icon]="'fa-solid fa-magnifying-glass fa-5x'"
+      [Title]="'Attendance'"
       ></app-item>
     </div>
 </app-screen>

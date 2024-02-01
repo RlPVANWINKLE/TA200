@@ -10,6 +10,10 @@ export class ItemComponent implements OnInit {
   @Input()
   parent!: string;
   @Input()
+  Icon!: string;
+  @Input()
+  Title!: string;
+  @Input()
   child!: string;
   @Input()
   class: string = 'm-item';

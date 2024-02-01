@@ -10,7 +10,7 @@ export class AppComponent implements OnInit{
   title = 'TA200';
   height = visualViewport?.height;
   width = visualViewport?.width;
-
+  public ServerAddress = "testing";
   constructor(
     private _router: Router
   ){}

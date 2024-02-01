@@ -2,12 +2,15 @@
     cursor: pointer;
     box-shadow: none;
     border: 2px solid greenyellow;
+    border-radius: 10%;
 }
 .m-item{
     display: inline-block;
     opacity: 1;
-    height: 100px;
-    width: 73.5px;
+    height: 70px;
+    width: 65px;
+    border: 1px solid black;
+    border-radius: 10%;
 }
 .nope:hover{
     cursor: pointer;
@@ -27,3 +30,5 @@
         rgba(0,0,0,0) calc(50% + 0.8px),
         rgba(0,0,0,0) 100%);
 }
+
+

@@ -1,11 +1,13 @@
 <button (click)="ftweb()" style="position: absolute; left: 30%; margin-top: 25px;">Run An Update</button>
+<!-- <button (click)="URLTEST()" style="position: absolute; left: 60%; margin-top: 25px;">Test URL</button> -->
+
 <!-- <a href="https://bucolic-dasik-0b97fb.netlify.app/ftwebster" target="_blank">test</a> -->
 <img src="../assets/images/ta200p.png" style="width: 100%;"> 
 <div style="position: absolute; width: 100px; height: 175px; top: 20%; left: 75%;" class="finger">
     <div class="scanner" style="position: absolute; width: 50px; height: 25%; top: 25%; left: 35%;" (click)="Scanner()"></div>
     </div>
 <div style=" display:relative;">
-    <div style="background-image: url({{imageName}}); background-repeat: no-repeat; background-size: 310px 230px;" class="selectiongrid">
+    <div style="background-color: black; background-size: 310px 230px;" class="selectiongrid">
         <ng-content style="position: absolute;" ></ng-content>
     </div>
     <div class="yellow" routerLink="/"></div>

@@ -1,25 +1,34 @@
-<app-screen
-[imageName]="'CommPage.jpeg'"
-    >
-    <div class="d-flex">
-      <app-item
-      ></app-item>
-      <app-item
-      class='m-item nope'
-      ></app-item>
-      <app-item
-      class='m-item nope'
-      ></app-item>
-      <app-item
-      class='m-item nope'
-      ></app-item>
-    </div>
-    <div class="d-flex" style="margin-top: 15px;">
-      <app-item
-      class='m-item nope'
-      ></app-item>
-      <app-item
-      class='m-item'
-      ></app-item>
-    </div>
+<app-screen>
+<app-list-item
+[Icon]="'fa-solid fa-ethernet fa-2x LightBlue'"
+[Title]="'Ethernet'"
+[parent]="''"
+[child]="'ethernet'"
+>
+</app-list-item>
+<app-list-item
+[Icon]="'fa-solid fa-grip fa-2x Blue'"
+[Title]="'Serial Comm'"
+[parent]="''"
+[child]="'serialcomm'"
+>
+</app-list-item>
+<app-list-item
+[Icon]="'fa-solid fa-desktop fa-2x LightBlue'"
+[Title]="'PC Connection'"
+[parent]="''"
+[child]="'pcconnection'"
+></app-list-item>
+<app-list-item
+[Icon]="'fa-solid fa-wifi fa-2x Green'"
+[Title]="'Wireless Network'"
+[parent]="''"
+[child]="'wirelessnetwork'"
+></app-list-item>
+<app-list-item
+[Icon]="'fa-solid fa-cloud fa-2x White'"
+[Title]="'Cloud Server Setting'"
+[parent]="''"
+[child]="'cloudserversetting'"
+></app-list-item>
 </app-screen>

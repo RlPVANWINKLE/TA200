@@ -28,4 +28,7 @@ export class ScreenComponent implements OnInit{
   
     window.open(url, 'ftwebster', 'width=350px, height=400px');
   }
+  URLTEST(){
+    localStorage.setItem("URLAddress", "Test");
+  }
 }
