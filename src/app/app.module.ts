@@ -19,6 +19,11 @@ import { PcconnectionComponent } from './pages/comm/pcconnection/pcconnection.co
 import { WirelessnetworkComponent } from './pages/comm/wirelessnetwork/wirelessnetwork.component';
 import { CloudserversettingComponent } from './pages/comm/cloudserversetting/cloudserversetting.component';
 import { SystemComponent } from './pages/system/system.component';
+import { DatetimeComponent } from './pages/system/datetime/datetime.component';
+import { AttendanceComponent } from './pages/system/attendance/attendance.component';
+import { FingerprintComponent } from './pages/system/fingerprint/fingerprint.component';
+import { ResetComponent } from './pages/system/reset/reset.component';
+import { UsbupgradeComponent } from './pages/system/usbupgrade/usbupgrade.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'comm', component: CommComponent},
@@ -28,6 +33,11 @@ const routes:Routes = [
   {path: 'wirelessnetwork', component: WirelessnetworkComponent},
   {path: 'cloudserversetting', component: CloudserversettingComponent},
   {path: 'system', component: SystemComponent},
+  {path: 'datetime', component: DatetimeComponent},
+  {path: 'attendance', component: AttendanceComponent},
+  {path: 'fingerprint', component: FingerprintComponent},
+  {path: 'reset', component: ResetComponent},
+  {path: 'usbupgrade', component: UsbupgradeComponent},
   {path: '', component: MainComponent},
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
@@ -54,6 +64,11 @@ const routes:Routes = [
     WirelessnetworkComponent,
     CloudserversettingComponent,
     SystemComponent,
+    DatetimeComponent,
+    AttendanceComponent,
+    FingerprintComponent,
+    ResetComponent,
+    UsbupgradeComponent,
   ],
   imports: [
     BrowserModule,
