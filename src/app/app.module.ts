@@ -29,6 +29,7 @@ import { EnrollerComponent } from './pages/userrole/enroller/enroller.component'
 import { AdminComponent } from './pages/userrole/admin/admin.component';
 import { UserdefinedroleComponent } from './pages/userrole/userdefinedrole/userdefinedrole.component';
 import { LockscreenComponent } from './pages/lockscreen/lockscreen.component';
+import { ListitemswitchComponent } from './pages/listitemswitch/listitemswitch.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'userrole', component: UserroleComponent},
@@ -84,6 +85,7 @@ const routes:Routes = [
     AdminComponent,
     UserdefinedroleComponent,
     LockscreenComponent,
+    ListitemswitchComponent,
   ],
   imports: [
     BrowserModule,

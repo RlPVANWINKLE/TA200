@@ -19,7 +19,7 @@ export class LockscreenComponent implements OnInit{
     if(localStorage.getItem("menuaccess") == "Verified"){
       this._router.navigate(["/main"])
     }else{
-      localStorage.setItem("menuaccess", "Verified");
+      // localStorage.setItem("menuaccess", "Verified");
     }
     
   }

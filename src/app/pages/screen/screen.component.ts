@@ -29,6 +29,7 @@ export class ScreenComponent implements OnInit{
     
   }
   Scanner(){
+    localStorage.setItem("menuaccess", "Verified")
     var verified = localStorage.getItem("menuaccess");
     if(verified == "Verified"){
       this._router.navigate(["/main"])
@@ -57,6 +58,7 @@ export class ScreenComponent implements OnInit{
 
   }
   lockclock(){
-    localStorage.setItem("menuacces", "Unverified");
+    this._router.navigate(['/'])
+    localStorage.setItem("menuaccess", "Unverified");
   }
 }
