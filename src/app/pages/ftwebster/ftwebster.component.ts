@@ -30,6 +30,7 @@ update(){
   if(inputURL == "https://clock11.fingercheck.com" || inputURL == "https://clock10.fingercheck.com"){
     this.updated = true;
     (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = " ";
+    localStorage.setItem("URLAddress", inputURL);
   }
   else{
     (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = "Something is incorrect. Please check your fields"
