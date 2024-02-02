@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-screen',
@@ -9,8 +9,11 @@ import { Router } from '@angular/router';
 export class ScreenComponent implements OnInit{
   @Input()
   imageName!: string;
+  @Input()
+  backroute: string = '/'
   constructor(
     private _router: Router
+    
   ){}
   ngOnInit(): void {
     if (this.imageName) {
