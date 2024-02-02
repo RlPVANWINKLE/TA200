@@ -13,7 +13,7 @@ export class LockscreenComponent implements OnInit{
     private _router: Router
   ){}
   ngOnInit(){
-    
+    setInterval(this.currentdate, 1000)
   }
   menu(){
     if(localStorage.getItem("menuaccess") == "Verified"){
@@ -23,5 +23,8 @@ export class LockscreenComponent implements OnInit{
     }
     
   }
-  
+  currentdate(){
+    this.date = new Date();
+  }
+
 }

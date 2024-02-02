@@ -50,7 +50,6 @@ export class ScreenComponent implements OnInit{
   }
   backroutes(){
     if(this.backroute == '/'){
-      localStorage.setItem("menuaccess", "unvalidated");
       this._router.navigate([this.backroute])
     }else{
       this._router.navigate([this.backroute])

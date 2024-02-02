@@ -1,1 +1,7 @@
-<p>listitemswitch works!</p>
+<div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%;"
+    (click)="nextPage()"
+    routerLink="{{_parent}}/{{_child}}" >
+    <div >
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">{{Title}}</label><div style="display: inline-block; width: 40%; text-align: end;" class="form-switch"><input class="form-check-input fs-6" type="checkbox" role="switch" id="{{_id}}"></div>
+    </div>
+</div>

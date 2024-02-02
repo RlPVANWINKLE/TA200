@@ -30,18 +30,24 @@ import { AdminComponent } from './pages/userrole/admin/admin.component';
 import { UserdefinedroleComponent } from './pages/userrole/userdefinedrole/userdefinedrole.component';
 import { LockscreenComponent } from './pages/lockscreen/lockscreen.component';
 import { ListitemswitchComponent } from './pages/listitemswitch/listitemswitch.component';
+import { PersonalizeComponent } from './pages/personalize/personalize.component';
+import { UserinterfaceComponent } from './pages/personalize/userinterface/userinterface.component';
+import { VoiceComponent } from './pages/personalize/voice/voice.component';
+import { BellschedulesComponent } from './pages/personalize/bellschedules/bellschedules.component';
+import { PunchstateoptionsComponent } from './pages/personalize/punchstateoptions/punchstateoptions.component';
+import { ShortcutkeymappingsComponent } from './pages/personalize/shortcutkeymappings/shortcutkeymappings.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'userrole', component: UserroleComponent},
   {path: 'enroller', component: EnrollerComponent},
   {path: 'admin', component: AdminComponent},
-  {path: 'userdefinedrole', component: UserdefinedroleComponent},
+  {path: 'user-defined-role', component: UserdefinedroleComponent},
   {path: 'comm', component: CommComponent},
   {path: 'ethernet', component: EthernetComponent},
-  {path: 'serialcomm', component: SerialcommComponent},
-  {path: 'pcconnection', component: PcconnectionComponent},
-  {path: 'wirelessnetwork', component: WirelessnetworkComponent},
-  {path: 'cloudserversetting', component: CloudserversettingComponent},
+  {path: 'serial-comm', component: SerialcommComponent},
+  {path: 'pc-connection', component: PcconnectionComponent},
+  {path: 'wireless-network', component: WirelessnetworkComponent},
+  {path: 'cloud-server-setting', component: CloudserversettingComponent},
   {path: 'system', component: SystemComponent},
   {path: 'datetime', component: DatetimeComponent},
   {path: 'attendance', component: AttendanceComponent},
@@ -53,9 +59,13 @@ const routes:Routes = [
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
   {path: 'users/manage/edit', component: EditUserComponent},
-  
+  {path: 'personalize', component: PersonalizeComponent},  
+  {path: 'user-interface', component: UserinterfaceComponent},  
+  {path: 'voice', component: VoiceComponent},  
+  {path: 'bell-schedules', component: BellschedulesComponent},  
+  {path: 'punch-state-options', component: PunchstateoptionsComponent},  
+  {path: 'shortcut-key-mappings', component: ShortcutkeymappingsComponent}, 
 ]
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,6 +96,12 @@ const routes:Routes = [
     UserdefinedroleComponent,
     LockscreenComponent,
     ListitemswitchComponent,
+    PersonalizeComponent,
+    UserinterfaceComponent,
+    VoiceComponent,
+    BellschedulesComponent,
+    PunchstateoptionsComponent,
+    ShortcutkeymappingsComponent,
   ],
   imports: [
     BrowserModule,
