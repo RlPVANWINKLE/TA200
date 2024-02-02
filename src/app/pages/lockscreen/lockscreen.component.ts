@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-lockscreen',
@@ -7,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LockscreenComponent implements OnInit{
   public date = new Date();
+  constructor(
+    private _router: Router
+  ){}
   ngOnInit(){
     
   }
   menu(){
-    alert("Verify Please");
-    localStorage.setItem("menuaccess", "Verified");
+    if(localStorage.getItem("menuaccess") == "Verified"){
+      this._router.navigate(["/main"])
+    }else{
+      localStorage.setItem("menuaccess", "Verified");
+    }
+    
   }
   
 }

@@ -8,5 +8,5 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
   localStorage.setItem("URLAddress", "22.22.22.2");
   localStorage.setItem("IPAddress", "101.188.67.134");
-  localStorage.setItem("menuaccess", "Unverified");
+  localStorage.setItem("menuaccess", "Verified");
   

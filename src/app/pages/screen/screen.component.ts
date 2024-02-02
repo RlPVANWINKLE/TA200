@@ -56,4 +56,7 @@ export class ScreenComponent implements OnInit{
     }
 
   }
+  lockclock(){
+    localStorage.setItem("menuacces", "Unverified");
+  }
 }
