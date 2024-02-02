@@ -1,15 +1,11 @@
 <div (click)="ftweb()" style="display: inline; position: absolute; left: 30%; margin-top: 25px; width: 15%; border: 0.5px solid gray; border-radius: 5%; color:black;" class="BGLBlue fs-5 p-1">Run An Update</div>
-<!-- <button (click)="URLTEST()" style="position: absolute; left: 60%; margin-top: 25px;">Test URL</button> -->
-
-<!-- <a href="https://bucolic-dasik-0b97fb.netlify.app/ftwebster" target="_blank">test</a> -->
 <img src="../assets/images/ta200p.png" style="width: 100%;"> 
-<div style="position: absolute; width: 100px; height: 175px; top: 20%; left: 75%;" class="finger">
-    <div class="scanner" style="position: absolute; width: 50px; height: 25%; top: 25%; left: 35%;" (click)="Scanner()"></div>
+<div style="position: absolute; width: 100px; height: 175px; top: 20%; left: 75%;" class="finger" (click)="Scanner()">
+    <div class="scanner" style="position: absolute; width: 50px; height: 25%; top: 25%; left: 35%;" ></div>
     </div>
 <div style=" display:relative;">
-    <div style="background-color: black; background-size: 310px 230px;" class="selectiongrid">
+    <div id="background" style=" background-size: 310px 230px;" class="selectiongrid">
         <ng-content style="position: absolute;" ></ng-content>
     </div>
-    <div class="yellow" routerLink="{{backroute}}"></div>
+    <div class="yellow" (click)="backroutes()"></div>
 </div>
-<!-- <button (click)="ftweb()" style="position: relative;">Run An Update</button> -->

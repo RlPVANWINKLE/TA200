@@ -28,6 +28,7 @@ import { UserroleComponent } from './pages/userrole/userrole.component';
 import { EnrollerComponent } from './pages/userrole/enroller/enroller.component';
 import { AdminComponent } from './pages/userrole/admin/admin.component';
 import { UserdefinedroleComponent } from './pages/userrole/userdefinedrole/userdefinedrole.component';
+import { LockscreenComponent } from './pages/lockscreen/lockscreen.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'userrole', component: UserroleComponent},
@@ -46,7 +47,8 @@ const routes:Routes = [
   {path: 'fingerprint', component: FingerprintComponent},
   {path: 'reset', component: ResetComponent},
   // {path: 'usbupgrade', component: UsbupgradeComponent},
-  {path: '', component: MainComponent},
+  {path: 'main', component: MainComponent},
+  {path: '', component: LockscreenComponent},
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
   {path: 'users/manage/edit', component: EditUserComponent},
@@ -81,6 +83,7 @@ const routes:Routes = [
     EnrollerComponent,
     AdminComponent,
     UserdefinedroleComponent,
+    LockscreenComponent,
   ],
   imports: [
     BrowserModule,

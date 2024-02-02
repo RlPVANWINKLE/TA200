@@ -10,21 +10,34 @@ export class ScreenComponent implements OnInit{
   @Input()
   imageName!: string;
   @Input()
-  backroute: string = '/'
+  BG: string = 'base'
+  @Input()
+  backroute: any = '/main'
   constructor(
     private _router: Router
     
   ){}
-  ngOnInit(): void {
+  ngOnInit(){
     if (this.imageName) {
       this.imageName = "./assets/images/" + this.imageName;
     }
+    if(this.BG != 'base'){
+      (<HTMLDivElement>document.getElementById('background')).style.backgroundImage = 'linear-gradient(180deg, Blue, lightblue)'
+    }else{
+      (<HTMLDivElement>document.getElementById('background')).style.background = 'black'
+    }
+    
   }
   Scanner(){
-    alert("Scanner Click Test");
+    var verified = localStorage.getItem("menuaccess");
+    if(verified == "Verified"){
+      this._router.navigate(["/main"])
+    }
+    else{
+      
+    }
   }
   ftweb(){
-    // window.open('https://bucolic-dasik-0b97fb.netlify.app/ftwebster', 'ftwebster', 'width=350px, height=400px');
     const url = this._router.serializeUrl(
       this._router.createUrlTree([`/ftwebster`])
     );
@@ -33,5 +46,14 @@ export class ScreenComponent implements OnInit{
   }
   URLTEST(){
     localStorage.setItem("URLAddress", "Test");
+  }
+  backroutes(){
+    if(this.backroute == '/'){
+      localStorage.setItem("menuaccess", "unvalidated");
+      this._router.navigate([this.backroute])
+    }else{
+      this._router.navigate([this.backroute])
+    }
+
   }
 }
