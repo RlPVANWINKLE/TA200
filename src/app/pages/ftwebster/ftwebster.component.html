@@ -1,7 +1,8 @@
 <div style="padding: 10px;">
     <div style="width: 330px;">
-        <div style="display:inline-block; width: 50%;">IP: <input type="text" id="ip" name="ip" value="192.168.1.201" size="10" ></div>
-        <div style="display: inline-block; width: 50%;"><button style="width: 100%; padding: 10px;">Connect</button></div>
+        <div style="display:inline-block; width: 50%;">IP: <input type="text" id="ip" name="ip" value="192.168.1.201" size="10"></div>
+        <div id="btnconn" style="display: inline-block; width: 50%;"><button style="width: 100%; padding: 10px;" (click)="connect()">Connect</button></div>
+        <div id="btnupd" style="display: none; width: 50%;"><button style="width: 100%; padding: 10px;" (click)="update()">Update</button></div>
     </div>
     <div style="width: 330px; padding: 10px; margin-top: 10px; border: 1px solid skyblue; ">
         <div class="w-25" style="display: inline-block;"><input type="radio" id="radioIP" name="radio" checked="checked" (click)="kind = 'IP'"> IP</div>
@@ -11,9 +12,15 @@
             <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server Port: </p><input type="text" size="1" value="80"></div>
         </div>
         <div class="URLclass" id="URLid" *ngIf="kind == 'URL'">
-            <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server URL: </p><input type="text" id="ip" name="ip" value="192.168.1.201" size="20" ></div>
-            <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server Port: </p><input type="text" size="1" value="80"></div>
+            <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server URL: </p><input type="text" id="url" name="url" value="" size="20" ></div>
+            <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server Port: </p><input type="text" size="1" value=""></div>
             <div style="text-align: start;"><p style="display: inline-block; width: 110px;"><input type="checkbox"> DNS Server: </p><input type="text" size="10" value="8.8.8.8"></div>
         </div>
+    </div>
+    <div class="success">
+        <p *ngIf="connected" class="Green">Connected, please continue...</p>
+        <p *ngIf="!connected" class="Red">Not Connected, please use the appropriate IP address</p>
+        <p *ngIf="updated" class="Green">Update Successful</p>
+        <p *ngIf="!updated" class="Red" id="wrongurl"></p>
     </div>
 </div>

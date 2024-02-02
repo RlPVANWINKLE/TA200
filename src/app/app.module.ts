@@ -24,8 +24,16 @@ import { AttendanceComponent } from './pages/system/attendance/attendance.compon
 import { FingerprintComponent } from './pages/system/fingerprint/fingerprint.component';
 import { ResetComponent } from './pages/system/reset/reset.component';
 import { UsbupgradeComponent } from './pages/system/usbupgrade/usbupgrade.component';
+import { UserroleComponent } from './pages/userrole/userrole.component';
+import { EnrollerComponent } from './pages/userrole/enroller/enroller.component';
+import { AdminComponent } from './pages/userrole/admin/admin.component';
+import { UserdefinedroleComponent } from './pages/userrole/userdefinedrole/userdefinedrole.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
+  {path: 'userrole', component: UserroleComponent},
+  {path: 'enroller', component: EnrollerComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'userdefinedrole', component: UserdefinedroleComponent},
   {path: 'comm', component: CommComponent},
   {path: 'ethernet', component: EthernetComponent},
   {path: 'serialcomm', component: SerialcommComponent},
@@ -69,6 +77,10 @@ const routes:Routes = [
     FingerprintComponent,
     ResetComponent,
     UsbupgradeComponent,
+    UserroleComponent,
+    EnrollerComponent,
+    AdminComponent,
+    UserdefinedroleComponent,
   ],
   imports: [
     BrowserModule,

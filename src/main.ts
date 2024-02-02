@@ -7,3 +7,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 
   localStorage.setItem("URLAddress", "22.22.22.2");
+  localStorage.setItem("IPAddress", "101.188.67.134");
+  localStorage.setItem("GoodURLAddress1", "https://clock11.fingercheck.com")
+  localStorage.setItem("GoodURLAddress2", "https://clock10.fingercheck.com")
