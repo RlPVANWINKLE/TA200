@@ -13,6 +13,7 @@ export class ScreenComponent implements OnInit{
   BG: string = 'base'
   @Input()
   backroute: any = '/main'
+  locked: any;
   constructor(
     private _router: Router
     
@@ -31,7 +32,8 @@ export class ScreenComponent implements OnInit{
   Scanner(){
     localStorage.setItem("menuaccess", "Verified")
     var verified = localStorage.getItem("menuaccess");
-    if(verified == "Verified"){
+    var BDActive = localStorage.getItem("backdooractive");
+    if(verified == "Verified" && BDActive != "Active"){
       this._router.navigate(["/main"])
     }
     else{
@@ -57,7 +59,19 @@ export class ScreenComponent implements OnInit{
 
   }
   lockclock(){
-    this._router.navigate(['/'])
+    this.locked = true;
+    var psswd = new Date();
+    var pssdHours = psswd.getHours().toString();
+    var password = ((9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))*(9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))).toString();
     localStorage.setItem("menuaccess", "Unverified");
+    localStorage.setItem("backdooractive", "Active");
+    localStorage.setItem("backdoorpassword", password);
+    this._router.navigate(['/backdoor-prompt']);
+  }
+  unlockclock(){
+    this.locked = false;
+    this._router.navigate(['/'])
+    localStorage.setItem("menuaccess", "Verified");
+    localStorage.setItem("backdooractive", "Inactive");
   }
 }

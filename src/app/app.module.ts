@@ -36,6 +36,7 @@ import { VoiceComponent } from './pages/personalize/voice/voice.component';
 import { BellschedulesComponent } from './pages/personalize/bellschedules/bellschedules.component';
 import { PunchstateoptionsComponent } from './pages/personalize/punchstateoptions/punchstateoptions.component';
 import { ShortcutkeymappingsComponent } from './pages/personalize/shortcutkeymappings/shortcutkeymappings.component';
+import { BackdoorpromptComponent } from './pages/lockscreen/backdoorprompt/backdoorprompt.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'userrole', component: UserroleComponent},
@@ -65,6 +66,7 @@ const routes:Routes = [
   {path: 'bell-schedules', component: BellschedulesComponent},  
   {path: 'punch-state-options', component: PunchstateoptionsComponent},  
   {path: 'shortcut-key-mappings', component: ShortcutkeymappingsComponent}, 
+  {path: 'backdoor-prompt', component: BackdoorpromptComponent}, 
 ]
 @NgModule({
   declarations: [
@@ -102,6 +104,7 @@ const routes:Routes = [
     BellschedulesComponent,
     PunchstateoptionsComponent,
     ShortcutkeymappingsComponent,
+    BackdoorpromptComponent,
   ],
   imports: [
     BrowserModule,

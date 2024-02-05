@@ -1,0 +1,17 @@
+<app-screen [backroute]="'backdoor-prompt'">
+    <div class="fs-4 White mb-3">Unlock Clock</div>
+    <form>
+        <div *ngIf="!BDIdAccepted">
+            <div class="fs-6 White">Clock Id</div>
+            <input type="text" id="BDId">
+        </div>
+        <div *ngIf="BDId == '8888'">
+            <div class="fs-6 White">Password</div>
+            <input type="text" id="BDPassword">
+        </div>
+    </form>
+
+    
+</app-screen>
+<div class="btnOK" (click)="OK()" *ngIf="!BDIdAccepted"></div>
+<div class="btnOK" (click)="OK2()" *ngIf="BDId == '8888'"></div>
