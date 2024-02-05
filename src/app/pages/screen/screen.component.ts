@@ -14,6 +14,9 @@ export class ScreenComponent implements OnInit{
   @Input()
   backroute: any = '/main'
   locked: any;
+  status: any = 'Disconnected'
+  public date = new Date();
+  intervalId:any;
   constructor(
     private _router: Router
     
@@ -27,7 +30,16 @@ export class ScreenComponent implements OnInit{
     }else{
       (<HTMLDivElement>document.getElementById('background')).style.background = 'black'
     }
-    
+    this.intervalId = setInterval(() => {
+      this.status = localStorage.getItem("ServerStatus");
+      if(this.status == "Disconnected"){
+        (<HTMLSpanElement>document.getElementById("status")).style.color = 'Red'
+      }else if(this.status == "Connected")
+      {
+        (<HTMLSpanElement>document.getElementById("status")).style.color = 'LightGreen'
+        
+      }
+    }, 1500);
   }
   Scanner(){
     localStorage.setItem("menuaccess", "Verified")

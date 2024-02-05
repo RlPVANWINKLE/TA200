@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit} from '@angular/core';
 import { DOCUMENT } from '@angular/common'; 
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-ftwebster',
@@ -15,10 +16,13 @@ public updbtn : string = "none"
 public serveraddress : any = ""
 public port :string = ""
 public DNSserver: string = ""
-constructor() {
-}
+constructor(
+  private _router: Router
+) {}
+
   ngOnInit(){
     this.serveraddress = localStorage.getItem("URLAddress")?.toString()
+    
   }
 connect(){
   var inputValue = (<HTMLInputElement>document.getElementById('ip')).value;
@@ -45,6 +49,7 @@ update(){
     (<HTMLInputElement>document.getElementById('btnconn')).style.display = 'none';
     (<HTMLInputElement>document.getElementById('btnres')).style.display = 'inline-block';
     (<HTMLInputElement>document.getElementById('btnupd')).style.display = 'none';
+    localStorage.setItem("ServerStatus", "Connected");    
   }
   else{
     (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = "Something is incorrect. Please check your fields"
