@@ -3,15 +3,27 @@
     <form>
         <div *ngIf="!BDIdAccepted">
             <div class="fs-6 White">Clock Id</div>
-            <input type="text" id="BDId">
+            <input type="text" id="BDId" value="{{BDId}}">
         </div>
-        <div *ngIf="BDId == '8888'">
+        <div *ngIf="BDId == '8888' && BDIdAccepted">
             <div class="fs-6 White">Password</div>
-            <input type="text" id="BDPassword">
+            <input type="text" id="BDPassword" value="{{BDPassword}}">
         </div>
     </form>
 
     
 </app-screen>
 <div class="btnOK" (click)="OK()" *ngIf="!BDIdAccepted"></div>
-<div class="btnOK" (click)="OK2()" *ngIf="BDId == '8888'"></div>
+<div class="btnOK" (click)="OK2()" *ngIf="BDId == '8888' && BDIdAccepted"></div>
+<div>
+    <div class="one numbpad1" (click)="numclick(1)"></div>
+    <div class="two numbpad1" (click)="numclick(2)"></div>
+    <div class="three numbpad1" (click)="numclick(3)"></div>
+    <div class="one numbpad2" (click)="numclick(4)"></div>
+    <div class="two numbpad2" (click)="numclick(5)"></div>
+    <div class="three numbpad2" (click)="numclick(6)"></div>
+    <div class="one numbpad3" (click)="numclick(7)"> </div>
+    <div class="two numbpad3" (click)="numclick(8)"></div>
+    <div class="three numbpad3" (click)="numclick(9)"></div>
+    <div class="zero" (click)="numclick(0)"></div>
+</div>

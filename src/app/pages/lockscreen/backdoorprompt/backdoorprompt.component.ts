@@ -7,8 +7,9 @@ import { Router, RouterLink } from '@angular/router';
   styleUrls: ['./backdoorprompt.component.scss']
 })
 export class BackdoorpromptComponent implements OnInit{
-  BDId:string = "0000";
+  BDId:string = "";
   BDIdAccepted:boolean = false;
+  BDPassword:string = "";
   constructor(
     private _router: Router
     
@@ -28,6 +29,13 @@ export class BackdoorpromptComponent implements OnInit{
     var BDpsswd = localStorage.getItem("backdoorpassword");
     if(BDpsswd == clockpassword){
       this._router.navigate(['/main'])
+    }
+  }
+  numclick(num:any){
+    if(this.BDIdAccepted == false){
+    this.BDId = this.BDId.toString() + num.toString()
+    }else{
+      this.BDPassword = this.BDPassword.toString() + num.toString()
     }
   }
 }

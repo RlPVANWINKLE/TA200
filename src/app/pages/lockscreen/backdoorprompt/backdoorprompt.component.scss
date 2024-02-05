@@ -10,3 +10,53 @@
     border: 2px solid greenyellow;
     cursor: pointer;
 }
+.numbpad1{
+    position: absolute;
+    width: 8%;
+    height: 4%;
+    border: 1px solid greenyellow;
+    top: 63%;
+}
+.numbpad1:hover{
+    background:rgba(lightgreen, $alpha: 0.4) 
+}
+.numbpad2:hover{
+    background:rgba(lightgreen, $alpha: 0.4) 
+}
+.numbpad3:hover{
+    background:rgba(lightgreen, $alpha: 0.4) 
+}
+.numbpad2{
+    position: absolute;
+    width: 8%;
+    height: 4%;
+    border: 1px solid greenyellow;
+    top: 68.5%;
+}
+.numbpad3{
+    position: absolute;
+    width: 8%;
+    height: 4%;
+    border: 1px solid greenyellow;
+    top: 74%;
+}
+.one{
+    left: 20%;
+}
+.two{
+    left: 29%;
+}
+.three{
+    left: 38.5%;
+}
+.zero{
+    left: 29%;
+    position: absolute;
+    width: 8%;
+    height: 4%;
+    border: 1px solid greenyellow;
+    top: 79%;
+}
+.zero:hover{
+    background:rgba(lightgreen, $alpha: 0.4) 
+}
