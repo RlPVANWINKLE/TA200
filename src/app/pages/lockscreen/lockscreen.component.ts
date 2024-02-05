@@ -9,11 +9,14 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class LockscreenComponent implements OnInit{
   public date = new Date();
+  intervalId:any;
   constructor(
     private _router: Router
   ){}
   ngOnInit(){
-    setInterval(this.currentdate, 1000)
+    this.intervalId = setInterval(() => {
+      this.date = new Date();
+    }, 1000);
   }
   menu(){
     if(localStorage.getItem("menuaccess") == "Verified"){
