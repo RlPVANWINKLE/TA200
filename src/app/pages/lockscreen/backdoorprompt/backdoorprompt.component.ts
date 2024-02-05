@@ -15,20 +15,33 @@ export class BackdoorpromptComponent implements OnInit{
     
   ){}
     ngOnInit(){
-      
+      var psswd = new Date();
+      var pssdHours = psswd.getHours().toString();
+      var password = ((9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))*(9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))).toString();
+      localStorage.setItem("backdoorpassword", password);
     }
   OK(){
-    var clockId = (<HTMLInputElement>document.getElementById('BDId')).value;
-    if(clockId == "8888" && this.BDIdAccepted == false){
+    var clockId = (<HTMLInputElement>document.getElementById('BDId'));
+    if(clockId.value == "8888" && this.BDIdAccepted == false){
       this.BDId = "8888"
       this.BDIdAccepted = true;
+      clockId.style.backgroundColor = 'White'
+    }else{
+      clockId.style.backgroundColor = 'Red'
+      this.BDId = ""
     }
   }
   OK2(){
-    var clockpassword = (<HTMLInputElement>document.getElementById('BDPassword')).value;
+    var clockpassword = (<HTMLInputElement>document.getElementById('BDPassword'));
     var BDpsswd = localStorage.getItem("backdoorpassword");
-    if(BDpsswd == clockpassword){
+    alert(clockpassword.value);
+    alert(BDpsswd)
+    if(BDpsswd == clockpassword.value){
       this._router.navigate(['/main'])
+      clockpassword.style.backgroundColor = 'White'
+    }else{
+      clockpassword.style.backgroundColor = 'Red'
+      this.BDPassword = ""
     }
   }
   numclick(num:any){
