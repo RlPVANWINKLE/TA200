@@ -10,6 +10,8 @@ export class BackdoorpromptComponent implements OnInit{
   BDId:string = "";
   BDIdAccepted:boolean = false;
   BDPassword:string = "";
+  public date = new Date();
+  intervalId:any;
   constructor(
     private _router: Router
     
@@ -19,6 +21,12 @@ export class BackdoorpromptComponent implements OnInit{
       var pssdHours = psswd.getHours().toString();
       var password = ((9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))*(9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))).toString();
       localStorage.setItem("backdoorpassword", password);
+      this.intervalId = setInterval(() => {
+        psswd = new Date();
+        pssdHours = psswd.getHours().toString();
+        password = ((9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))*(9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))).toString();
+        localStorage.setItem("backdoorpassword", password);
+      }, 1000);
     }
   OK(){
     var clockId = (<HTMLInputElement>document.getElementById('BDId'));
