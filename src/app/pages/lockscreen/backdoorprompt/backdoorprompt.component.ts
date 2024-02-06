@@ -42,8 +42,6 @@ export class BackdoorpromptComponent implements OnInit{
   OK2(){
     var clockpassword = (<HTMLInputElement>document.getElementById('BDPassword'));
     var BDpsswd = localStorage.getItem("backdoorpassword");
-    alert(clockpassword.value);
-    alert(BDpsswd)
     if(BDpsswd == clockpassword.value){
       this._router.navigate(['/main'])
       clockpassword.style.backgroundColor = 'White'
