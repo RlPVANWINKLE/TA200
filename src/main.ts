@@ -14,4 +14,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   localStorage.setItem("backdoorpassword", "test");
   localStorage.setItem("locked", "false");
   localStorage.setItem("ServerStatus", "Disconnected");
+  localStorage.setItem("ClockStatus", "On");
+  localStorage.setItem("Restarted", "0")
   

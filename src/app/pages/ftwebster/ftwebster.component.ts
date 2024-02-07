@@ -57,6 +57,7 @@ update(){
   }
 }
 restart(){
-
+  localStorage.setItem("ClockStatus", "Restart");
+  window.close();
 }
 }
