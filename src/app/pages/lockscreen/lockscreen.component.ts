@@ -20,11 +20,11 @@ export class LockscreenComponent implements OnInit{
   }
   menu(){
     if(localStorage.getItem("menuaccess") == "Verified"){
-      this._router.navigate(["/main"])
+      this._router.navigate(["/main"], { skipLocationChange: true })
     }else{
       // localStorage.setItem("menuaccess", "Verified");
     }
-    
+
   }
   currentdate(){
     this.date = new Date();

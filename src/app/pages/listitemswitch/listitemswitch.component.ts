@@ -30,10 +30,10 @@ export class ListitemswitchComponent  implements OnInit {
     this._parent = this.parent;
     this._child = this.child;
     (<HTMLInputElement>document.getElementById(this._id)).checked = this.status
-    
+
   }
   nextPage(){
-    this._router.navigate([`${this._parent}/${this._child}`]);
+    this._router.navigate([`${this._parent}/${this._child}`], { skipLocationChange: true });
   }
 
 }

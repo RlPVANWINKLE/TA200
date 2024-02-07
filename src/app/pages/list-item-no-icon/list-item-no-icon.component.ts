@@ -25,10 +25,10 @@ export class ListItemNoIconComponent implements OnInit {
   ngOnInit(): void {
     this._parent = this.parent
     this._child = this.child
-    
+
   }
   nextPage(){
-    this._router.navigate([`${this._parent}/${this._child}`]);
+    this._router.navigate([`${this._parent}/${this._child}`], { skipLocationChange: true });
   }
 
 }

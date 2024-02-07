@@ -17,6 +17,6 @@ export class ManageComponent {
     this.UserId = id;
   }
   editUser(is: string){
-    this._router.navigate(['users/manage/edit']);
+    this._router.navigate(['users/manage/edit'], { skipLocationChange: true });
   }
 }

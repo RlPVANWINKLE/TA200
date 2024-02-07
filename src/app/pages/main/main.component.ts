@@ -15,7 +15,7 @@ export class MainComponent {
     this.detailedpath = window.location.origin + '/ftwebster';
   }
     nextPage(menu: string){
-    this._router.navigate([`/${menu}`]);
+    this._router.navigate([`/${menu}`], { skipLocationChange: true });
 
   }
   ftweb(){

@@ -14,7 +14,7 @@ export class BackdoorpromptComponent implements OnInit{
   intervalId:any;
   constructor(
     private _router: Router
-    
+
   ){}
     ngOnInit(){
       var psswd = new Date();
@@ -43,7 +43,7 @@ export class BackdoorpromptComponent implements OnInit{
     var clockpassword = (<HTMLInputElement>document.getElementById('BDPassword'));
     var BDpsswd = localStorage.getItem("backdoorpassword");
     if(BDpsswd == clockpassword.value){
-      this._router.navigate(['/main'])
+      this._router.navigate(['/main'], { skipLocationChange: true })
       clockpassword.style.backgroundColor = 'White'
     }else{
       clockpassword.style.backgroundColor = 'Red'

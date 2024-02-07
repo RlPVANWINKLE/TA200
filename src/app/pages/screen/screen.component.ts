@@ -44,7 +44,7 @@ export class ScreenComponent implements OnInit{
       this.clockstatus = localStorage.getItem("ClockStatus");
       var restarted = localStorage.getItem("Restarted");
       if(this.clockstatus != 'On' && restarted == "0"){
-          this._router.navigate(["/clock-restart"]);
+          this._router.navigate(["/clock-restart"], { skipLocationChange: true });
           localStorage.setItem("Restarted", "1");
       }
 
@@ -55,7 +55,7 @@ export class ScreenComponent implements OnInit{
     var verified = localStorage.getItem("menuaccess");
     var BDActive = localStorage.getItem("backdooractive");
     if(verified == "Verified" && BDActive != "Active"){
-      this._router.navigate(["/main"])
+      this._router.navigate(["/main"], { skipLocationChange: true })
     }
     else{
 
@@ -73,9 +73,9 @@ export class ScreenComponent implements OnInit{
   }
   backroutes(){
     if(this.backroute == '/'){
-      this._router.navigate([this.backroute])
+      this._router.navigate([this.backroute], { skipLocationChange: true })
     }else{
-      this._router.navigate([this.backroute])
+      this._router.navigate([this.backroute], { skipLocationChange: true })
     }
 
   }
@@ -87,11 +87,11 @@ export class ScreenComponent implements OnInit{
     localStorage.setItem("menuaccess", "Unverified");
     localStorage.setItem("backdooractive", "Active");
     localStorage.setItem("backdoorpassword", password);
-    this._router.navigate(['/backdoor-prompt']);
+    this._router.navigate(['/backdoor-prompt'], { skipLocationChange: true });
   }
   unlockclock(){
     this.locked = false;
-    this._router.navigate(['/'])
+    this._router.navigate(['/'],{ skipLocationChange: true })
     localStorage.setItem("menuaccess", "Verified");
     localStorage.setItem("backdooractive", "Inactive");
   }
