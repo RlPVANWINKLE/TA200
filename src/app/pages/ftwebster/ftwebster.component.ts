@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit} from '@angular/core';
-import { DOCUMENT } from '@angular/common'; 
+import { DOCUMENT } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -22,11 +22,11 @@ constructor(
 
   ngOnInit(){
     this.serveraddress = localStorage.getItem("URLAddress")?.toString()
-    
+
   }
 connect(){
   var inputValue = (<HTMLInputElement>document.getElementById('ip')).value;
-  
+
   this.updbtn = (<HTMLInputElement>document.getElementById('btnupd')).style.display;
   var IPADDRESS = localStorage.getItem("IPAddress");
   if(inputValue == IPADDRESS){
@@ -42,17 +42,39 @@ connect(){
 }
 update(){
   var inputURL = (<HTMLInputElement>document.getElementById('url')).value;
+  var inputServerPort = (<HTMLInputElement>document.getElementById('port')).value;
+  var inputdns = (<HTMLInputElement>document.getElementById('dns')).value;
+  var inputdnscheck = (<HTMLInputElement>document.getElementById('dnscheck')).checked;
   if(inputURL == "https://clock11.fingercheck.com" || inputURL == "https://clock10.fingercheck.com"){
-    this.updated = true;
-    (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = " ";
-    localStorage.setItem("URLAddress", inputURL);
-    (<HTMLInputElement>document.getElementById('btnconn')).style.display = 'none';
-    (<HTMLInputElement>document.getElementById('btnres')).style.display = 'inline-block';
-    (<HTMLInputElement>document.getElementById('btnupd')).style.display = 'none';
-    localStorage.setItem("ServerStatus", "Connected");    
+    if(inputServerPort == "80"){
+      if(inputdns == "8.8.8.8"){
+        if(inputdnscheck == true){
+          this.updated = true;
+          (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = " ";
+          localStorage.setItem("URLAddress", inputURL);
+          (<HTMLInputElement>document.getElementById('btnconn')).style.display = 'none';
+          (<HTMLInputElement>document.getElementById('btnres')).style.display = 'inline-block';
+          (<HTMLInputElement>document.getElementById('btnupd')).style.display = 'none';
+          localStorage.setItem("ServerStatus", "Connected");
+        }
+        else{
+          (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = "Your DNS server is not checked"
+          this.updated = false;
+        }
+      }
+      else{
+        (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = "Your DNS server is incorrect(8.8.8.8)"
+        this.updated = false;
+      }
+    }
+    else{
+      (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = "Your server port is incorrect(80)"
+      this.updated = false;
+    }
+
   }
   else{
-    (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = "Something is incorrect. Please check your fields"
+    (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = "Your server URL is incorrect"
     this.updated = false;
   }
 }

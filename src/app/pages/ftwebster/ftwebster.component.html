@@ -14,8 +14,8 @@
         </div>
         <div class="URLclass" id="URLid" *ngIf="kind == 'URL'">
             <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server URL: </p><input type="text" id="url" name="url" value="{{serveraddress}}" size="20" ></div>
-            <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server Port: </p><input type="text" size="1" value=""></div>
-            <div style="text-align: start;"><p style="display: inline-block; width: 110px;"><input type="checkbox"> DNS Server: </p><input type="text" size="10" value="8.8.8.8"></div>
+            <div style="text-align: start;"><p style="display: inline-block; width: 110px;">Server Port: </p><input type="text" size="1" value="" id="port"></div>
+            <div style="text-align: start;"><p style="display: inline-block; width: 110px;"><input type="checkbox" id="dnscheck"> DNS Server: </p><input type="text" size="10" value="8.8.8.8" id="dns"></div>
         </div>
     </div>
     <div class="success">
