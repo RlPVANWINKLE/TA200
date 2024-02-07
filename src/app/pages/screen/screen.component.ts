@@ -20,7 +20,7 @@ export class ScreenComponent implements OnInit{
   intervalId:any;
   constructor(
     private _router: Router
-    
+
   ){}
   ngOnInit(){
     if (this.imageName) {
@@ -35,12 +35,12 @@ export class ScreenComponent implements OnInit{
     this.intervalId = setInterval(() => {
       this.serverstatus = localStorage.getItem("ServerStatus");
       if(this.serverstatus == "Disconnected"){
-        (<HTMLSpanElement>document.getElementById("status")).style.color = 'Red'
-      }else if(this.serverstatus == "Connected")
-      {
-        (<HTMLSpanElement>document.getElementById("status")).style.color = 'LightGreen'
-        
-      }
+        (<HTMLSpanElement>document.getElementById("status")).style.color = 'Red'}
+      // }else if(this.serverstatus == "Connected")
+      // {
+      //   (<HTMLSpanElement>document.getElementById("status")).style.color = 'LightGreen'
+
+      // }
       this.clockstatus = localStorage.getItem("ClockStatus");
       var restarted = localStorage.getItem("Restarted");
       if(this.clockstatus != 'On' && restarted == "0"){
@@ -58,14 +58,14 @@ export class ScreenComponent implements OnInit{
       this._router.navigate(["/main"])
     }
     else{
-      
+
     }
   }
   ftweb(){
     const url = this._router.serializeUrl(
       this._router.createUrlTree([`/ftwebster`])
     );
-  
+
     window.open(url, 'ftwebster', 'width=350px, height=400px');
   }
   URLTEST(){
