@@ -14,30 +14,35 @@ export class EnrollfpComponent {
       if(this.TimesScanned == 1){
         (<HTMLDivElement>document.getElementById('once')).style.backgroundColor = 'Green';
         (<HTMLDivElement>document.getElementById('once')).style.color = 'Green';
-        (<HTMLDivElement>document.getElementById('title')).innerHTML = '<i class="fa-solid fa-info BGRed py-1 px-2" style="border: 1px solid white; border-radius: 45%;"></i> Second Press'
-
+        (<HTMLDivElement>document.getElementById('title')).innerHTML = '<i class="fa-solid fa-info BGRed py-1 px-2" style="border: 1px solid white; border-radius: 45%;"></i> Second Press';
+        (<HTMLDivElement>document.getElementById('fingerprint')).innerHTML = '<i class=" fa-sharp fa-solid fa-fingerprint fs-1 mt-1 White"></i>';
+        setTimeout(()=>{
+          (<HTMLDivElement>document.getElementById('fingerprint')).style.border = '1px solid White';
+          (<HTMLDivElement>document.getElementById('fingerprint')).innerHTML = '';
+        },750)
       }
       if(this.TimesScanned == 2){
         (<HTMLDivElement>document.getElementById('twice')).style.backgroundColor = 'Green';
         (<HTMLDivElement>document.getElementById('twice')).style.color = 'Green';
-        (<HTMLDivElement>document.getElementById('title')).innerHTML = '<i class="fa-solid fa-info BGRed py-1 px-2" style="border: 1px solid white; border-radius: 45%;"></i> Third Press'
-
+        (<HTMLDivElement>document.getElementById('title')).innerHTML = '<i class="fa-solid fa-info BGRed py-1 px-2" style="border: 1px solid white; border-radius: 45%;"></i> Third Press';
+        (<HTMLDivElement>document.getElementById('fingerprint')).innerHTML = '<i class=" fa-sharp fa-solid fa-fingerprint fs-1 mt-1 White"></i>'
+        setTimeout(()=>{
+          (<HTMLDivElement>document.getElementById('fingerprint')).style.border = '1px solid White';
+          (<HTMLDivElement>document.getElementById('fingerprint')).innerHTML = '';
+        },750)
       }
       if(this.TimesScanned == 3){
         (<HTMLDivElement>document.getElementById('thrice')).style.backgroundColor = 'Green';
         (<HTMLDivElement>document.getElementById('thrice')).style.color = 'Green';
         (<HTMLDivElement>document.getElementById('title')).innerHTML = '<i class="fa-solid fa-info BGRed py-0 px-1" style="border: 1px solid white; border-radius: 45%;"></i> Enroll Successful!';
         (<HTMLDivElement>document.getElementById('fingerprint')).style.backgroundColor = 'Green';
+        (<HTMLDivElement>document.getElementById('fingerprint')).innerHTML = '<i class="fa-solid fa-check fs-1 mt-1 LightGreen"></i>'
         let UserId:any = 0;
-        UserId = localStorage.getItem("UserId");
+        UserId = localStorage.getItem("ItemEdit");
         let users = JSON.parse(localStorage.getItem("UserList") || "[]");
         users[UserId-1].FingerPrint = users[UserId-1].FingerPrint+1;
-        alert(users[UserId-1].FingerPrint)
-        localStorage.setItem("ItemList", JSON.stringify(users))
+        localStorage.setItem("UserList", JSON.stringify(users))
       }
-      setTimeout(()=>{
-        (<HTMLDivElement>document.getElementById('fingerprint')).style.border = '1px solid White';
-      },750)
     }
   }
 }
