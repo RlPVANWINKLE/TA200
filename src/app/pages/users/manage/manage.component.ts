@@ -15,8 +15,9 @@ export class ManageComponent {
   userClicked(id: string){
     this.Visible = this.Visible?false:true;
     this.UserId = id;
+    this._router.navigate(['useredit']);
   }
-  editUser(is: string){
-    this._router.navigate(['users/manage/edit'], { skipLocationChange: true });
+  editUser(id: string){
+    
   }
 }

@@ -40,6 +40,7 @@ import { BackdoorpromptComponent } from './pages/lockscreen/backdoorprompt/backd
 import { RestartComponent } from './pages/restart/restart.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
+  {path: 'allusers', component: ManageComponent},
   {path: 'userrole', component: UserroleComponent},
   {path: 'enroller', component: EnrollerComponent},
   {path: 'admin', component: AdminComponent},
@@ -60,7 +61,7 @@ const routes:Routes = [
   {path: '', component: LockscreenComponent},
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
-  {path: 'users/manage/edit', component: EditUserComponent},
+  {path: 'useredit', component: EditUserComponent},
   {path: 'personalize', component: PersonalizeComponent},  
   {path: 'user-interface', component: UserinterfaceComponent},  
   {path: 'voice', component: VoiceComponent},  
