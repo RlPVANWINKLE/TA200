@@ -25,6 +25,6 @@ export class EditUserComponent implements OnInit{
       Card: 0
     };
     Enroll(){
-      this._router.navigate(['enrollfingerprint']);
+      this._router.navigate(['enrollfingerprint'], { skipLocationChange: true });
     }
 }
