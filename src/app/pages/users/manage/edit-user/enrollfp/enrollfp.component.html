@@ -1,0 +1,24 @@
+<app-screen
+[backroute]="'/useredit'"
+[title]="'Backup Enroll'"
+    >
+  <div class="text-center fs-5 White pb-2">Backup Enroll</div>
+  <div class="row">
+    <div class="col-6">
+      <div style="width: 150px; display: inline-block;" class="fs-6 mb-5">
+        <div style="width: 50px; display: inline; border: 2px solid white; color: black;" id="once">TestTest</div>
+        <div style="width: 50px; display: inline; border: 2px solid white; color: black;" id="twice">TestTest</div>
+        <div style="width: 50px; display: inline; border: 2px solid white; color: black;" id="thrice">TestTest</div>
+      </div>
+      <div class="my-2">.</div>
+      <div id="title" class="White fs-6 mt-5 text-start ms-2"><i class="fa-solid fa-info BGRed py-1 px-2" style="border: 1px solid white; border-radius: 45%;"></i> Press Finger....</div>
+    </div>
+    <div class="col-6">
+      <div style="border: 1px solid white; border-radius: 90%; height: 125px; width: 75%; background-color: aqua;" class="mt-4 ms-3" id="fingerprint"></div>
+    </div>
+  </div>
+
+</app-screen>
+<div style="position: absolute; width: 100px; height: 175px; top: 20%; left: 75%;" class="finger" (click)="Scanner()">
+  <div class="scanner" style="position: absolute; width: 50px; height: 25%; top: 25%; left: 35%;" ></div>
+  </div>

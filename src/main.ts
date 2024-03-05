@@ -16,4 +16,28 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   localStorage.setItem("ServerStatus", "Disconnected");
   localStorage.setItem("ClockStatus", "On");
   localStorage.setItem("Restarted", "0")
-  
+  let Users=[
+    {
+      Id: 1,
+      Name: 'Ethan',
+      FingerPrint: 0,
+      Password: 0,
+      Card: 0
+    },
+    {
+      Id: 2,
+      Name: 'Seth',
+      FingerPrint: 1,
+      Password: 0,
+      Card: 0
+    },
+    {
+      Id: 3,
+      Name: 'Kendra',
+      FingerPrint: 0,
+      Password: 0,
+      Card: 0
+    }
+  ]
+  localStorage.setItem("UserList", JSON.stringify(Users));
+  localStorage.setItem("ItemEdit", "0");

@@ -6,27 +6,13 @@
     <div class="d-inline-block" style="color: White; margin-right: 1%; width: 12.5%; background-color: cornflowerblue; font-size: medium; padding-top: .25%;">PWD</div>
     <div class="d-inline-block" style="color: White; margin-left: 1%; width: 12.5%; background-color: cornflowerblue; font-size: medium; padding-top: .25%;">Card</div>
   </div>
-  <div style="background-color: lightgrey; height: 75%; margin-left: -10px;">
-    <div class="user" (click)="userClicked('1234')">
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 30%;">1234</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 25%">Andy</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 10%">1</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 12.5%"></div>
-      <div class="d-inline-block" style="margin-left: 1%;font-size: small; width: 12.5%"></div>
-    </div>
-    <div class="user" (click)="userClicked('1888')">
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 30%;">1888</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 25%">Kate</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 10%">0</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 12.5%">*KEY*</div>
-      <div class="d-inline-block" style="margin-left: 1%;font-size: small; width: 12.5%"></div>
-    </div>
-    <div class="user" (click)="userClicked('1555')" >
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 30%;">1555</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 25%">Bob</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 10%">0</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 12.5%"></div>
-      <div class="d-inline-block" style="margin-left: 1%;font-size: small; width: 12.5%"></div>
+  <div style="background-color: lightgrey; height: 75%; margin-left: -10px;" >
+    <div class="user" (click)="userClicked(item.Id)" *ngFor="let item of Users">
+      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 30%;">{{item.Id}}</div>
+      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 25%">{{item.Name}}</div>
+      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 10%">{{item.FingerPrint}}</div>
+      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 12.5%">{{item.Password}}</div>
+      <div class="d-inline-block" style="margin-left: 1%;font-size: small; width: 12.5%">{{item.Card}}</div>
     </div>
   </div>
   <div style="background-color: cornflowerblue; height: 10%; margin-left: -10px;">

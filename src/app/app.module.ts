@@ -38,6 +38,7 @@ import { PunchstateoptionsComponent } from './pages/personalize/punchstateoption
 import { ShortcutkeymappingsComponent } from './pages/personalize/shortcutkeymappings/shortcutkeymappings.component';
 import { BackdoorpromptComponent } from './pages/lockscreen/backdoorprompt/backdoorprompt.component';
 import { RestartComponent } from './pages/restart/restart.component';
+import { EnrollfpComponent } from './pages/users/manage/edit-user/enrollfp/enrollfp.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'allusers', component: ManageComponent},
@@ -62,14 +63,15 @@ const routes:Routes = [
   {path: 'ftwebster', component: FTWebsterComponent},
   {path: 'users/manage', component: ManageComponent},
   {path: 'useredit', component: EditUserComponent},
-  {path: 'personalize', component: PersonalizeComponent},  
-  {path: 'user-interface', component: UserinterfaceComponent},  
-  {path: 'voice', component: VoiceComponent},  
-  {path: 'bell-schedules', component: BellschedulesComponent},  
-  {path: 'punch-state-options', component: PunchstateoptionsComponent},  
-  {path: 'shortcut-key-mappings', component: ShortcutkeymappingsComponent}, 
-  {path: 'backdoor-prompt', component: BackdoorpromptComponent}, 
-  {path: 'clock-restart', component: RestartComponent}, 
+  {path: 'enrollfingerprint', component: EnrollfpComponent},
+  {path: 'personalize', component: PersonalizeComponent},
+  {path: 'user-interface', component: UserinterfaceComponent},
+  {path: 'voice', component: VoiceComponent},
+  {path: 'bell-schedules', component: BellschedulesComponent},
+  {path: 'punch-state-options', component: PunchstateoptionsComponent},
+  {path: 'shortcut-key-mappings', component: ShortcutkeymappingsComponent},
+  {path: 'backdoor-prompt', component: BackdoorpromptComponent},
+  {path: 'clock-restart', component: RestartComponent},
 
 ]
 @NgModule({
@@ -110,6 +112,7 @@ const routes:Routes = [
     ShortcutkeymappingsComponent,
     BackdoorpromptComponent,
     RestartComponent,
+    EnrollfpComponent,
   ],
   imports: [
     BrowserModule,
