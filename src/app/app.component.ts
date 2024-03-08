@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,14 @@ export class AppComponent implements OnInit{
   height = visualViewport?.height;
   width = visualViewport?.width;
   public ServerAddress = "testing";
-  constructor(
-    private _router: Router
-  ){}
+  constructor(_router: Router){
+    const navEndEvents = _router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+    );
+    // navEndEvents.subscribe((event: NavigationEnd) => {
+
+    // })
+  }
   ngOnInit() {
     
   }
