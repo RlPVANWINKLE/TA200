@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
+declare var gtag:any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,11 +14,13 @@ export class AppComponent implements OnInit{
   width = visualViewport?.width;
   public ServerAddress = "testing";
   constructor(_router: Router){
-    const navEndEvents = _router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-    );
+    // const navEndEvents = _router.events.pipe(
+    //   filter(event => event instanceof NavigationEnd)
+    // );
     // navEndEvents.subscribe((event: NavigationEnd) => {
-
+    //   gtag('config', 'G-BKD1GRJHBD',{
+    //     'page_path': event.urlAfterRedirects
+    //   });
     // })
   }
   ngOnInit() {
