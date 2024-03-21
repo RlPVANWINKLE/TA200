@@ -1,11 +1,59 @@
-<app-screen [BG]="'test'" [backroute]="'/'">
-    <div class="fs-6 White text-start h-25" >
-        {{date | date: 'MM/dd/yy hh:mm a'}}
+<app-screen [BG]="'test'" [backroute]="'/'"*ngIf="screen == 'lock'">
+    <div >
+        <div class="fs-6 White text-start h-25" >
+            {{date | date: 'MM/dd/yy hh:mm a'}}
+        </div>
+        <div class="h-75">
+            <div class="fs-1 White">{{date | date: 'hh:mm:ss'}}</div>
+            <div class="fs-6 White">{{date | date: 'MM/dd/yy EEEE a'}}</div>
+            <div class="fs-4 White">Check-In</div>
+        </div>
     </div>
-    <div class="h-75">
-        <div class="fs-1 White">{{date | date: 'hh:mm:ss'}}</div>
-        <div class="fs-6 White">{{date | date: 'MM/dd/yy EEEE a'}}</div>
-        <div class="fs-4 White">Check-In</div>
+</app-screen>
+<app-screen [BG]="'base'" [backroute]="'/'"*ngIf="screen == 'true'">
+    <div class="container White">
+        <div class="row mt-5">
+            <div class="col"><i class="fa-solid fa-check fa-5x LightGreen p-3" style="border: 3px solid Green; border-radius: 45%;"></i> </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col text-start" style="font-size: 15px;">
+                        <div>Check-in</div>
+                        <div>Verified: Fingerprint</div>
+                        <div>Successfully Verified</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">UserId: {{User.Id}} - {{User.LName}}, {{User.Name}}</div>
+    </div>
+
+</app-screen>
+<app-screen [BG]="'base'" [backroute]="'/'"*ngIf="screen == 'false'">
+    <div class="container White">
+        <div class="row mt-5">
+            <div class="col"><i class="fa-solid fa-times fa-5x Red p-3" style="border: 3px solid Red; border-radius: 45%;"></i> </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col text-start" style="font-size: 15px;">
+                        <div>Check-in</div>
+                        <div>Illegal Fingerprint</div>
+                        <div>Failed To Verify</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">UserId: </div>
     </div>
 </app-screen>
 <div class="menuaccess" (click)="menu()"></div>
+<div class="punchselection">
+    <select style="width: 130px;" class="form-select" id="selection" (change)="Selected()">
+        <option selected>Select User</option>
+        <option value="Bob">Bob</option>
+        <option value="Seth">Seth</option>
+        <option value="Kendra">Kendra</option>
+    </select>
+</div>
+<div style="position: absolute; width: 100px; height: 175px; top: 20%; left: 75%;" class="finger" (click)="clockin()">
+    <div class="scanner" style="position: absolute; width: 50px; height: 25%; top: 25%; left: 35%;" id="scanner"></div>
+    </div>

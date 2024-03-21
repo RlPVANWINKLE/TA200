@@ -12,3 +12,11 @@
 .menuaccess:hover{
     cursor: pointer;
 }
+.punchselection{
+    position: absolute;
+    left: 72.5%;
+    top: 45%;
+}
+.finger:hover{
+    cursor: URL('../../../assets/images/fingertip.png'), auto;
+  }
