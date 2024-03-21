@@ -1,21 +1,48 @@
 <app-screen
-[backroute]="'/allusers'"
+[backroute]="'/edit-delete'"
 [title]="'Edit User'"
     >
-  <div class="text-center fs-5 White pb-2">Edit User</div>
-  <div class="text-start fs-6 White BorderBottomWhite pb-1">ID. NO - {{User.Id}}</div>
-  <div class="text-start fs-6 White BorderBottomWhite pb-1">Name: {{User.Name}}</div>
-  <div class="row BorderBottomWhite py-1">
-    <div class="col-2 text-start fs-6 White">FP</div>
-    <div class="col-6 fs-6 text-start"><button (click)="Enroll()">Enroll FP</button></div>
-    <div class="col-2 text-start fs-6 White">{{User.FingerPrint}}</div>
+  <div class="text-center fs-6 White pb-2">Edit: {{User.Id}} {{User.LName}},{{User.Name}}</div>
+  <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
+    <div class="MI">
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">User ID</label>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.Id}}</p>
+    </div>
   </div>
-  <div class="row BorderBottomWhite py-1">
-    <div class="col-2 text-start fs-6 White">PWD</div>
-    <div class="col-6 fs-6 text-start"><button>Enroll PWD</button></div>
+  <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
+    <div class="MI">
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">Name</label>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.LName}}, {{User.Name}}</p>
+    </div>
   </div>
-  <div class="row BorderBottomWhite py-1">
-    <div class="col-2 text-start fs-6 White">CARD</div>
-    <div class="col-6 fs-6 text-start"><button>Enroll CARD</button></div>
+  <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
+    <div class="MI">
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">User Role</label>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.UserRole}}</p>
+    </div>
+  </div>
+  <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
+    <div class="MI">
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">Verification Mode</label>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">Fingerprint only</p>
+    </div>
+  </div>
+  <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange" (click)="Enroll()">
+    <div class="MI">
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 " >Fingerprint</label>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.FingerPrint}}</p>
+    </div>
+  </div>
+  <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
+    <div class="MI">
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">Card Number</label>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">0</p>
+    </div>
+  </div>
+  <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%;" class="hover-orange">
+    <div class="MI">
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">Password</label>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">0</p>
+    </div>
   </div>
 </app-screen>

@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-enrollfp',
   templateUrl: './enrollfp.component.html',
   styleUrls: ['./enrollfp.component.scss']
 })
 export class EnrollfpComponent {
+  constructor(
+    private _router: Router
+  ){}
   TimesScanned: any = 0;
   Scanner(){
     if(this.TimesScanned < 3){
@@ -39,9 +42,16 @@ export class EnrollfpComponent {
         (<HTMLDivElement>document.getElementById('fingerprint')).innerHTML = '<i class="fa-solid fa-check fs-1 mt-1 LightGreen"></i>'
         let UserId:any = 0;
         UserId = localStorage.getItem("ItemEdit");
+        let FingerIndex = localStorage.getItem("SelectedFinger");
         let users = JSON.parse(localStorage.getItem("UserList") || "[]");
         users[UserId-1].FingerPrint = users[UserId-1].FingerPrint+1;
+        users[UserId-1].fingerprints.push(FingerIndex);
+        console.log(users[UserId-1]);
         localStorage.setItem("UserList", JSON.stringify(users))
+        setTimeout(()=>{
+          this._router.navigate(['/useredit'])
+        }, 1500)
+        
       }
     }
   }

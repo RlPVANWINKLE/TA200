@@ -1,0 +1,20 @@
+.icon-flipped {
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
+.Thumb{
+    transform: rotate(45deg);
+}
+.Thumb2{
+    transform: rotate(-45deg);
+}
+.finger{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.finger:hover{
+    border: 1.5px solid red;
+    cursor: pointer;
+}

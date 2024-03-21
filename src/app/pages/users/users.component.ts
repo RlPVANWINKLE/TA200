@@ -12,6 +12,6 @@ export class UsersComponent {
     private _router: Router
   ){}
   nextPage(menu: string){
-    this._router.navigate([`users/${menu}`], { skipLocationChange: true });
+    this._router.navigate([`users/}`], { skipLocationChange: true });
   }
 }

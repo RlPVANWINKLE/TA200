@@ -1,0 +1,19 @@
+<app-screen
+[backroute]="'/useredit'"
+[title]="'fingerselection'"
+    >
+    <div class="text-center fs-6 White pb-2 mb-2">Enroll Fingerprint</div>
+    <div style="position: absolute; left: 28; top: 65; z-index: 1; height: 40px; width: 15.5px;" class="White fs-6 finger" id="0" (click)="Enroll(0)">0</div>
+    <div style="position: absolute; left: 53.5; top: 45; z-index: 1; height: 60px; width: 15.5px;" class="White fs-6 finger" id="1" (click)="Enroll(1)">1</div>
+    <div style="position: absolute; left: 78.5; top: 40; z-index: 1; height: 65px; width: 15.5px;" class="White fs-6 finger" id="2" (click)="Enroll(2)">2</div>
+    <div style="position: absolute; left: 104; top: 45; z-index: 1; height: 60px; width: 15.5px;" class="White fs-6 finger" id="3" (click)="Enroll(3)">3</div>
+    <div style="position: absolute; left: 127; top: 109; z-index: 1; height: 40px; width: 18px;" class="White fs-6 finger Thumb" id="4" (click)="Enroll(4)">4</div>
+    <div style="position: absolute; right: 127; top: 109; z-index: 1; height: 40px; width: 18px;" class="White fs-6 finger Thumb2" id="5" (click)="Enroll(5)">5</div>
+    <div style="position: absolute; right: 28; top: 65; z-index: 1; height: 40px; width: 15.5px;" class="White fs-6 finger" id="9" (click)="Enroll(9)">9</div>
+    <div style="position: absolute; right: 53.5; top: 45; z-index: 1; height: 60px; width: 15.5px;" class="White fs-6 finger" id="8" (click)="Enroll(8)">8</div>
+    <div style="position: absolute; right: 78.5; top: 40; z-index: 1; height: 65px; width: 15.5px;" class="White fs-6 finger" id="7" (click)="Enroll(7)">7</div>
+    <div style="position: absolute; right: 104; top: 45; z-index: 1; height: 60px; width: 15.5px;" class="White fs-6 finger" id="6" (click)="Enroll(6)">6</div>
+    <i class="fa-solid fa-hand icon-flipped" style="font-size: 135px; "></i>
+    <i class="fa-solid fa-hand" style="font-size: 135px;"></i>
+    <div class="text-center fs-6 White pb-2 mt-3">Please Select The Finger To Be Enrolled</div>
+</app-screen>

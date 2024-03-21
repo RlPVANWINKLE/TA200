@@ -1,32 +1,19 @@
 <app-screen [backroute]="'/users'">
-  <div style="background-color: lightgrey; height: 15%; margin-left: -10px; margin-top: -10px; padding-top: 10px;">
+  <!-- <div style="background-color: lightgrey; height: 15%; margin-left: -10px; margin-top: -10px; padding-top: 10px;">
     <div class="d-inline-block" style=" color: White; margin-right: 1%; width: 30%; background-color: cornflowerblue; font-size: medium; padding-top: .25%;">ID. NO</div>
     <div class="d-inline-block" style="color: White; margin-right: 1%; width: 25%; background-color: cornflowerblue; font-size: medium; padding-top: .25%;">Name</div>
     <div class="d-inline-block" style="color: White; margin-right: 1%; width: 10%; background-color: cornflowerblue; font-size: medium; padding-top: .25%;">FP</div>
     <div class="d-inline-block" style="color: White; margin-right: 1%; width: 12.5%; background-color: cornflowerblue; font-size: medium; padding-top: .25%;">PWD</div>
     <div class="d-inline-block" style="color: White; margin-left: 1%; width: 12.5%; background-color: cornflowerblue; font-size: medium; padding-top: .25%;">Card</div>
-  </div>
-  <div style="background-color: lightgrey; height: 75%; margin-left: -10px;" >
-    <div class="user" (click)="userClicked(item.Id)" *ngFor="let item of Users">
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 30%;">{{item.Id}}</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 25%">{{item.Name}}</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 10%">{{item.FingerPrint}}</div>
-      <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 12.5%">{{item.Password}}</div>
-      <div class="d-inline-block" style="margin-left: 1%;font-size: small; width: 12.5%">{{item.Card}}</div>
+  </div> -->
+  <div style="background-color: black; height: 75%;" >
+    <div class="text-center fs-6 White pb-2">All Users</div>
+    <div class="user White" (click)="userClicked(item.Id)" *ngFor="let item of Users">
+      <div class="d-inline-block" style="font-size: small; width: 20%;">{{item.Id}}</div>
+      <div class="d-inline-block" style="font-size: small; width: 35%">{{item.LName}}, {{item.Name}}</div>
+      <div class="d-inline-block" style="font-size: small; width: 40%;" ><i class="fa-solid fa-user w-25" *ngIf="item.UserRole == 'Super Admin'"></i><i class="fa-solid fa-fingerprint w-25" *ngIf="item.FingerPrint > 0"></i></div>
+      <!-- <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 12.5%">{{item.Password}}</div>
+      <div class="d-inline-block" style="margin-left: 1%;font-size: small; width: 12.5%">{{item.Card}}</div> -->
     </div>
   </div>
-  <div style="background-color: cornflowerblue; height: 10%; margin-left: -10px;">
-    <div class="d-inline-block" style="margin-right: 1%; width: 23%; font-size: small; padding-top: .25%; padding-left: 3.5%;">PageUp: <span style="font-size: medium; font-weight: bold;"> * </span></div>
-    <div class="d-inline-block" style="margin-right: 1%; width: 26%; font-size: small; padding-top: .25%;">PageDown: <span style="font-size: medium; font-weight: bold;"> # </span></div>
-    <div class="d-inline-block" style="margin-right: 1%; width: 23%; font-size: small; padding-top: .25%;">Edits: <span style="font-size: medium; font-weight: bold;"> OK </span></div>
-    <div class="d-inline-block" style="margin-right: 1%; width: 23%; font-size: small; padding-top: .25%;">Func: <span style="font-size: medium; font-weight: bold;"> M/ </span></div>
-  </div>
-  <!-- <div style="position: absolute; margin-left: 2%; margin-top: 2%; width: 50%; height: 95%; background-color: lightgrey; top: 0%;" class="text-center ps-2 border border-black" id="usermenu" *ngIf="Visible">
-    <div class=" text-start userSelection" style="font-size: x-large;"> Search User </div>
-    <div class=" text-start userSelection" style="font-size: x-large;"> Record </div>
-    <div class=" text-start userSelection" style="font-size: x-large;" (click)="editUser('{{UserId}}')"> Edit </div>
-    <div class=" text-start userSelection" style="font-size: x-large;"> Del User </div>
-    <div class=" text-start userSelection" style="font-size: x-large;"> New User </div>
-    <div class="text-start userSelection" style="font-size: x-large;"> User Access </div>
-  </div> -->
 </app-screen>

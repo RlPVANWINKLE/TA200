@@ -1,0 +1,18 @@
+<app-screen
+[backroute]="'/allusers'"
+[title]="'{{User.Name}}'"
+    >
+    <div class="text-center fs-5 White pb-2">{{User.Id}} - {{User.Name}}</div>
+    <app-list-item
+    [Icon]="'fa-solid fa-pencil'"
+    [Title]="'Edit User'"
+    [parent]="''"
+    [child]="'useredit'"
+    >
+    </app-list-item>
+    <app-list-item
+    [Icon]="'fa-sharp fa-solid fa-trash-can'"
+    [Title]="'Delete User'"
+    >
+    </app-list-item>
+</app-screen>

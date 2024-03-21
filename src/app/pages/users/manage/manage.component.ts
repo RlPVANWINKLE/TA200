@@ -22,7 +22,7 @@ export class ManageComponent implements OnInit {
     localStorage.setItem("ItemEdit", id)
     this.Visible = this.Visible?false:true;
     this.UserId = id;
-    this._router.navigate(['useredit'], { skipLocationChange: true });
+    this._router.navigate(['edit-delete'], { skipLocationChange: true });
   }
   editUser(id: string){
 

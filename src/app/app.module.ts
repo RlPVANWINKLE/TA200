@@ -39,6 +39,8 @@ import { ShortcutkeymappingsComponent } from './pages/personalize/shortcutkeymap
 import { BackdoorpromptComponent } from './pages/lockscreen/backdoorprompt/backdoorprompt.component';
 import { RestartComponent } from './pages/restart/restart.component';
 import { EnrollfpComponent } from './pages/users/manage/edit-user/enrollfp/enrollfp.component';
+import { UserEditdeleteComponent } from './pages/users/manage/user-editdelete/user-editdelete.component';
+import { FingerselectionComponent } from './pages/users/manage/user-editdelete/fingerselection/fingerselection.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'allusers', component: ManageComponent},
@@ -61,7 +63,9 @@ const routes:Routes = [
   {path: 'main', component: MainComponent},
   {path: '', component: LockscreenComponent},
   {path: 'ftwebster', component: FTWebsterComponent},
-  {path: 'users/manage', component: ManageComponent},
+  {path: 'manage', component: ManageComponent},
+  {path: 'edit-delete', component: UserEditdeleteComponent},
+  {path: 'finger-selection', component: FingerselectionComponent},
   {path: 'useredit', component: EditUserComponent},
   {path: 'enrollfingerprint', component: EnrollfpComponent},
   {path: 'personalize', component: PersonalizeComponent},
@@ -113,6 +117,8 @@ const routes:Routes = [
     BackdoorpromptComponent,
     RestartComponent,
     EnrollfpComponent,
+    UserEditdeleteComponent,
+    FingerselectionComponent,
   ],
   imports: [
     BrowserModule,

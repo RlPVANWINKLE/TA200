@@ -15,28 +15,38 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   localStorage.setItem("locked", "false");
   localStorage.setItem("ServerStatus", "Disconnected");
   localStorage.setItem("ClockStatus", "On");
-  localStorage.setItem("Restarted", "0")
+  localStorage.setItem("Restarted", "0");
+  localStorage.setItem("SelectedFinger","0");
   let Users=[
     {
       Id: 1,
-      Name: 'Ethan',
+      Name: 'Bob',
+      LName: 'Marley',
       FingerPrint: 0,
       Password: 0,
-      Card: 0
+      Card: 0,
+      UserRole: 'Super Admin',
+      fingerprints:[]
     },
     {
       Id: 2,
       Name: 'Seth',
-      FingerPrint: 1,
+      LName: 'Sorenson',
+      FingerPrint: 2,
       Password: 0,
-      Card: 0
+      Card: 0,
+      UserRole: 'Normal User',
+      fingerprints:[3,6]
     },
     {
       Id: 3,
       Name: 'Kendra',
+      LName: 'Wheeler',
       FingerPrint: 0,
       Password: 0,
-      Card: 0
+      Card: 0,
+      UserRole: 'Normal User',
+      fingerprints:[]
     }
   ]
   localStorage.setItem("UserList", JSON.stringify(Users));
