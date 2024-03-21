@@ -49,7 +49,7 @@ export class EnrollfpComponent {
         console.log(users[UserId-1]);
         localStorage.setItem("UserList", JSON.stringify(users))
         setTimeout(()=>{
-          this._router.navigate(['/useredit'])
+          this._router.navigate(['/useredit'],{skipLocationChange:true})
         }, 1500)
         
       }
