@@ -28,7 +28,7 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'https://app.fingercheck.com/api/v1/Sync/GetJobList';
+    const url = 'https://developer.fingercheck.com/api/v1/Sync/GetJobList';
     const options = {
         method: 'GET',
         headers: {
