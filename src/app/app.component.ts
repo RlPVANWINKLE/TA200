@@ -28,7 +28,7 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'https://cors-anywhere.herokuapp.com/https://developer.fingercheck.com/api/v1/Sync/GetJobList';
+    const url = 'https://developer.fingercheck.com/api/v1/Sync/GetJobList';
     const options = {
         method: 'GET',
         headers: {
@@ -36,13 +36,10 @@ export class AppComponent implements OnInit{
           'ClientSecretKey': '7fca3040-6820-49ea-bcfe-f6521329ebde',
       },
     };
-    try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(result);
-    } catch (error) {
-        console.error(error);
-    }
+    fetch(url,options)
+    .then((Response) => Response.json())
+    .then((data) => {
+      console.log(data)
+    })
   }
-
 }
