@@ -28,11 +28,11 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'https://proxy.cors.sh/https://developer.fingercheck.com/api/v1/Sync/GetJobList';
+    const url = 'https://cors-proxy.htmldriven.com/?url=https://developer.fingercheck.com/api/v1/Sync/GetJobList';
     const options = {
         method: 'GET',
         headers: {
-          'x-cors-api-key' : 'temp_afb6f569718927fedc5b901b041d4bba',
+          // 'x-cors-api-key' : 'temp_afb6f569718927fedc5b901b041d4bba',
           'Accept': 'application/json',
           'APIKEY': 'bc31cd5b-1057-413d-8d33-434a580852dc',
           'ClientSecretKey': '7fca3040-6820-49ea-bcfe-f6521329ebde',
