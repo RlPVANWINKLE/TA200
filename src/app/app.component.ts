@@ -28,7 +28,7 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'http://cors-anywhere.herokuapp.com/https://developer.fingercheck.com/api/v1/Sync/GetJobList';
+    const url = 'https://cors-anywhere.herokuapp.com/https://developer.fingercheck.com/api/v1/Sync/GetJobList';
     const options = {
         method: 'GET',
         headers: {
