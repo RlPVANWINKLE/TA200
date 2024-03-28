@@ -28,20 +28,17 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'https://corsproxy.io/?https://developer.fingercheck.com/api/v1/Sync/GetJobList';
+    const url = 'https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/jobs/';
     const options = {
-        method: 'GET',
-        headers: {
-          // 'x-cors-api-key' : 'temp_afb6f569718927fedc5b901b041d4bba',
-          'Accept': 'application/json',
-          'APIKEY': 'bc31cd5b-1057-413d-8d33-434a580852dc',
-          'ClientSecretKey': '7fca3040-6820-49ea-bcfe-f6521329ebde',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
-      },
+        method: 'GET',            
     };
-    fetch(url,options)
-		.then(response => response.json())
-		.then(response => console.log(response))
-		.catch(err => console.error(err));
-  }
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
 }
