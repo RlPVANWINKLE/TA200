@@ -28,7 +28,7 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'https://developer.fingercheck.com/api/v1/Sync/GetJobList';
+    const url = 'https://ta200.netlify.app/https://developer.fingercheck.com/api/v1/Sync/GetJobList';
     const options = {
         method: 'GET',
         headers: {
