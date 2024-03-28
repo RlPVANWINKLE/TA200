@@ -39,9 +39,8 @@ export class AppComponent implements OnInit{
       },
     };
     fetch(url,options)
-    .then((Response) => Response.json())
-    .then((data) => {
-      console.log(data)
-    })
+		.then(response => response.json())
+		.then(response => console.log(response))
+		.catch(err => console.error(err));
   }
 }
