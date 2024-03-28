@@ -28,12 +28,14 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'https://developer.fingercheck.com/api/v1/Sync/GetJobList';
+    const url = 'https://app.fingercheck.com/api/v1/Sync/GetJobList';
     const options = {
         method: 'GET',
         headers: {
+          'Accept': 'application/json',
           'APIKEY': 'bc31cd5b-1057-413d-8d33-434a580852dc',
           'ClientSecretKey': '7fca3040-6820-49ea-bcfe-f6521329ebde',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
       },
     };
     fetch(url,options)
