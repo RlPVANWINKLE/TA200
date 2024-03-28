@@ -28,13 +28,13 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'https://ta200.netlify.app/https://developer.fingercheck.com/api/v1/Sync/GetJobList';
+    const url = 'https://developer.fingercheck.com/api/v1/Sync/GetJobList';
     const options = {
         method: 'GET',
         headers: {
-          'APIKEY': 'bc31cd5b-1057-413d-8d33-434a580852dc',
-          'ClientSecretKey': '7fca3040-6820-49ea-bcfe-f6521329ebde',
-          'Accept': 'application/json'
+          'Key': 'bc31cd5b-1057-413d-8d33-434a580852dc',
+          'Secret Key': '7fca3040-6820-49ea-bcfe-f6521329ebde',
+          // 'Accept': 'application/json'
       },
     };
     try {
