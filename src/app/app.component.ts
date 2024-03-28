@@ -24,8 +24,25 @@ export class AppComponent implements OnInit{
     // })
   }
   ngOnInit() {
-    
-  }
 
+    this.load()
+  }
+  async load(){
+    const url = 'https://developer.fingercheck.com/api/v1/Sync/GetJobList';
+    const options = {
+        method: 'GET',
+        headers: {
+            'APIKEY': 'bc31cd5b-1057-413d-8d33-434a580852dc',
+            'CLIENTSECRETKEY': '7fca3040-6820-49ea-bcfe-f6521329ebde',
+        }
+    };
+    try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+  }
 
 }
