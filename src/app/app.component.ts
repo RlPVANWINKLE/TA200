@@ -12,6 +12,8 @@ export class AppComponent implements OnInit{
   title = 'TA200';
   height = visualViewport?.height;
   width = visualViewport?.width;
+  APIKEY = 'bc31cd5b-1057-413d-8d33-434a580852dc';
+  ClientSecretKey='7fca3040-6820-49ea-bcfe-f6521329ebde';
   public ServerAddress = "testing";
   constructor(_router: Router){
     // const navEndEvents = _router.events.pipe(
@@ -28,7 +30,7 @@ export class AppComponent implements OnInit{
     this.load()
   }
   async load(){
-    const url = 'https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/jobs/';
+    const url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/jobs/${this.APIKEY}/${this.ClientSecretKey}`;
     const options = {
         method: 'GET',            
     };
