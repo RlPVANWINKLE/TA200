@@ -32,8 +32,8 @@ export class AppComponent implements OnInit{
     const options = {
         method: 'GET',
         headers: {
-            'APIKEY': 'bc31cd5b-1057-413d-8d33-434a580852dc',
-            'CLIENTSECRETKEY': '7fca3040-6820-49ea-bcfe-f6521329ebde',
+          'APIKEY': 'bc31cd5b-1057-413d-8d33-434a580852dc',
+          'ClientSecretKey': '7fca3040-6820-49ea-bcfe-f6521329ebde',
         }
     };
     try {
