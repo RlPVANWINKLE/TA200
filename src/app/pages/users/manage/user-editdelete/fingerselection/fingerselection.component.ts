@@ -12,9 +12,14 @@ export class FingerselectionComponent implements OnInit{
   ){}
   ngOnInit() {
     let user = localStorage.getItem("ItemEdit");
-    this.UserId = parseInt(user || "[]")
+    // this.UserId = parseInt(user || "[]")
     let users = JSON.parse(localStorage.getItem("UserList") || "[]")
-    this.User = users[this.UserId-1];
+    localStorage.setItem("UserList", JSON.stringify(users))
+    users.forEach((element:any) => {
+      if(element.ClockNumber == user){
+        this.User = element
+      }
+    });
     this.Enrolled(this.User.fingerprints);
     }
   UserId:any = 0;

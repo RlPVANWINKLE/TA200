@@ -41,6 +41,10 @@ import { RestartComponent } from './pages/restart/restart.component';
 import { EnrollfpComponent } from './pages/users/manage/edit-user/enrollfp/enrollfp.component';
 import { UserEditdeleteComponent } from './pages/users/manage/user-editdelete/user-editdelete.component';
 import { FingerselectionComponent } from './pages/users/manage/user-editdelete/fingerselection/fingerselection.component';
+import { WorkcodeComponent } from './pages/workcode/workcode.component';
+import { AllworkcodesComponent } from './pages/workcode/allworkcodes/allworkcodes.component';
+import { WorkcodeoptionsComponent } from './pages/workcode/workcodeoptions/workcodeoptions.component';
+import { SidemenuComponent } from './pages/sidemenu/sidemenu.component';
 const routes:Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'allusers', component: ManageComponent},
@@ -76,6 +80,9 @@ const routes:Routes = [
   {path: 'shortcut-key-mappings', component: ShortcutkeymappingsComponent},
   {path: 'backdoor-prompt', component: BackdoorpromptComponent},
   {path: 'clock-restart', component: RestartComponent},
+  {path: 'work-code', component: WorkcodeComponent},
+  {path: 'all-work-codes', component: AllworkcodesComponent},
+  {path: 'work-code-options', component: WorkcodeoptionsComponent},
 
 ]
 @NgModule({
@@ -119,6 +126,10 @@ const routes:Routes = [
     EnrollfpComponent,
     UserEditdeleteComponent,
     FingerselectionComponent,
+    WorkcodeComponent,
+    AllworkcodesComponent,
+    WorkcodeoptionsComponent,
+    SidemenuComponent,
   ],
   imports: [
     BrowserModule,

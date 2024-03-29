@@ -20,3 +20,9 @@
 .finger:hover{
     cursor: URL('../../../assets/images/fingertip.png'), auto;
   }
+.jobCode:hover{
+    cursor: pointer;
+}
+.jobCode{
+    border-bottom: 2px solid black;
+}

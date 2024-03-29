@@ -2,23 +2,23 @@
 [backroute]="'/edit-delete'"
 [title]="'Edit User'"
     >
-  <div class="text-center fs-6 White pb-2">Edit: {{User.Id}} {{User.LName}},{{User.Name}}</div>
+  <div class="text-center fs-6 White pb-2">Edit: {{User.ClockNumber}} {{User.LastName}},{{User.FirstName}}</div>
   <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
     <div class="MI">
         <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">User ID</label>
-        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.Id}}</p>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.ClockNumber}}</p>
     </div>
   </div>
   <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
     <div class="MI">
         <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">Name</label>
-        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.LName}}, {{User.Name}}</p>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.LastName}}, {{User.FirstName}}</p>
     </div>
   </div>
   <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
     <div class="MI">
-        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">User Role</label>
-        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.UserRole}}</p>
+        <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 ">Supervisor/Enroller?</label>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.Admin}}</p>
     </div>
   </div>
   <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">
@@ -30,7 +30,7 @@
   <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange" (click)="Enroll()">
     <div class="MI">
         <label style=" color: white; display: inline-block; text-align: start; width: 60%;" class="fs-6 " >Fingerprint</label>
-        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.FingerPrint}}</p>
+        <p style="text-align: end; width: 40%; display: inline-block;" class=" m-auto White">{{User.fingerprintcount}}</p>
     </div>
   </div>
   <div style="width: 308px; padding-left: 5%; margin-bottom: 2%; padding-right: 5%; border-bottom: 1px solid White;" class="hover-orange">

@@ -44,9 +44,15 @@ export class EnrollfpComponent {
         UserId = localStorage.getItem("ItemEdit");
         let FingerIndex = localStorage.getItem("SelectedFinger");
         let users = JSON.parse(localStorage.getItem("UserList") || "[]");
-        users[UserId-1].FingerPrint = users[UserId-1].FingerPrint+1;
-        users[UserId-1].fingerprints.push(FingerIndex);
-        console.log(users[UserId-1]);
+        console.log(users)
+        let user:any;
+        users.forEach((element:any) => {
+          if(element.ClockNumber == UserId){
+            element.fingerprintcount = element.fingerprintcount+1;
+            element.fingerprints.push(FingerIndex);
+            console.log(element)
+          }
+        });
         localStorage.setItem("UserList", JSON.stringify(users))
         setTimeout(()=>{
           this._router.navigate(['/useredit'],{skipLocationChange:true})

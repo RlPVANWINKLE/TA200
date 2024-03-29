@@ -11,9 +11,20 @@ export class EditUserComponent implements OnInit{
   ){}
   ngOnInit() {
     let user = localStorage.getItem("ItemEdit");
-    this.UserId = parseInt(user || "[]")
+    // this.UserId = parseInt(user || "[]")
     let users = JSON.parse(localStorage.getItem("UserList") || "[]")
-    this.User = users[this.UserId-1];
+    let fingerprints = JSON.parse(localStorage.getItem("PrintLog") || "[]")
+    // this.User = users[this.UserId-1];
+    users.forEach((element: any) => {
+      if(element.ClockNumber == user){
+        this.User = element
+      }
+    });
+    // fingerprints.forEach((item:any) => {
+    //   if(item.ClockNumber == this.User.ClockNumber){
+    //     this.fingerprint = item
+    //   }
+    // });
     }
   UserId:any = 0;
   User:any =
@@ -26,5 +37,8 @@ export class EditUserComponent implements OnInit{
     };
     Enroll(){
       this._router.navigate(['finger-selection'], { skipLocationChange: true });
+    }
+    fingerprint:any = {
+
     }
 }

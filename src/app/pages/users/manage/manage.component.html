@@ -8,10 +8,10 @@
   </div> -->
   <div style="background-color: black; height: 75%;" >
     <div class="text-center fs-6 White pb-2">All Users</div>
-    <div class="user White" (click)="userClicked(item.Id)" *ngFor="let item of Users">
-      <div class="d-inline-block" style="font-size: small; width: 20%;">{{item.Id}}</div>
-      <div class="d-inline-block" style="font-size: small; width: 35%">{{item.LName}}, {{item.Name}}</div>
-      <div class="d-inline-block" style="font-size: small; width: 40%;" ><i class="fa-solid fa-user w-25" *ngIf="item.UserRole == 'Super Admin'"></i><i class="fa-solid fa-fingerprint w-25" *ngIf="item.FingerPrint > 0"></i></div>
+    <div class="user White" (click)="userClicked(item.ClockNumber)" *ngFor="let item of Users">
+      <div class="d-inline-block" style="font-size: small; width: 20%;" >{{item.ClockNumber}}</div>
+      <div class="d-inline-block" style="font-size: small; width: 35%" *ngIf="item.ClockNumber != ''">{{item.LastName}}, {{item.FirstName}}</div>
+      <div class="d-inline-block" style="font-size: small; width: 40%;" ><i class="fa-solid fa-user w-25" *ngIf="item.Admin == true"></i><i class="fa-solid fa-fingerprint w-25" *ngIf="item.fingerprintcount > 0"></i></div>
       <!-- <div class="d-inline-block" style="margin-right: 1%; font-size: small; width: 12.5%">{{item.Password}}</div>
       <div class="d-inline-block" style="margin-left: 1%;font-size: small; width: 12.5%">{{item.Card}}</div> -->
     </div>

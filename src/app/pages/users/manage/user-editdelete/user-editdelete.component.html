@@ -1,8 +1,8 @@
 <app-screen
 [backroute]="'/allusers'"
-[title]="'{{User.Name}}'"
+[title]="'{{User.FirstName}}'"
     >
-    <div class="text-center fs-5 White pb-2">{{User.Id}} - {{User.Name}}</div>
+    <div class="text-center fs-5 White pb-2">{{User.ClockNumber}} - {{User.LastName}} {{User.FirstName}}</div>
     <app-list-item
     [Icon]="'fa-solid fa-pencil'"
     [Title]="'Edit User'"

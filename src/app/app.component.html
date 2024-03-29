@@ -7,8 +7,19 @@
       </head>
 
 <body style="width: 800px; margin: auto;">
+  <div (click)="SideMenuToggle()" style=" width: 20%; border: 1px solid gray; color:black; margin: auto; margin-top: 25px;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center" *ngIf="Options == '/'">Options</div>
   <div style="position: absolute; text-align: center;">
+
       <router-outlet></router-outlet>
+  </div>
+
+  <div style="position: absolute; width: 30vw; height: 100vh; top: 0; right: 0; background-color: azure;" class="animate__animated animate__slideInRight animate__faster	" *ngIf="SideMenu == true">
+    <div><h1 class="text-center">Settings</h1></div>
+    <div (click)="ftweb()" style=" width: 50%; border: 1px solid gray; color:black; margin: auto;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center mb-3">Run An Update</div>
+    <div (click)="lockclock()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGRed fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-lock fs-2x me-1"></i>Lock Clock</div>
+    <div (click)="SyncJobs()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGLGreen fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-refresh fs-2x me-1"></i>Sync Jobs</div>
+    <div (click)="SendEE()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-arrow-right fs-2x me-1"></i>Send Employees To clock</div>
+
   </div>
 </body>
 </html>

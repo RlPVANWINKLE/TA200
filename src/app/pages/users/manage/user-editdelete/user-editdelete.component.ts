@@ -13,7 +13,12 @@ export class UserEditdeleteComponent implements OnInit{
     let user = localStorage.getItem("ItemEdit");
     this.UserId = parseInt(user || "[]")
     let users = JSON.parse(localStorage.getItem("UserList") || "[]")
-    this.User = users[this.UserId-1];
+    // this.User = users[this.UserId-1];
+    users.forEach((element: any) => {
+      if(element.ClockNumber == user){
+        this.User = element
+      }
+    });
     }
   UserId:any = 0;
   User:any =

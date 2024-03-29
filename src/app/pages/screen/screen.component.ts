@@ -18,11 +18,15 @@ export class ScreenComponent implements OnInit{
   clockstatus:any = 'On'
   public date = new Date();
   intervalId:any;
+  APIKEY:any = ''
+  ClientSecretKey:any =''
   constructor(
     private _router: Router
 
   ){}
   ngOnInit(){
+    this.APIKEY = localStorage.getItem("APIKEY");
+    this.ClientSecretKey = localStorage.getItem("ClientSecretKey");
     if (this.imageName) {
       this.imageName = "./assets/images/" + this.imageName;
     }
@@ -94,5 +98,31 @@ export class ScreenComponent implements OnInit{
     this._router.navigate(['/'],{ skipLocationChange: true })
     localStorage.setItem("menuaccess", "Verified");
     localStorage.setItem("backdooractive", "Inactive");
+  }
+  SendEE(){
+
+  }
+  async SyncJobs(){
+    let url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/jobs/${this.APIKEY}/${this.ClientSecretKey}`;
+    let options = {
+        method: 'GET',            
+    };
+
+    try {
+        const response = await fetch(url, options);
+        let result = await response.text();
+        console.log(result)
+        let jobs: any[] = []
+        let JobList: any[] = []
+        jobs = JSON.parse(result || "[]")
+        jobs.forEach(element => {
+          if(element.Code.match(/^[0-9]+$/)){
+            JobList.push(element)
+          }
+        });
+        localStorage.setItem("JobList", JSON.stringify(JobList));
+    } catch (error) {
+        console.error(error);
+    }
   }
 }

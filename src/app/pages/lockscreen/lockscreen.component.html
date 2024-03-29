@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-5">UserId: {{User.Id}} - {{User.LName}}, {{User.Name}}</div>
+        <div class="mt-5">UserId: {{User.ClockNumber}} - {{User.LastName}}, {{User.FirstName}}</div>
     </div>
 
 </app-screen>
@@ -45,15 +45,22 @@
         <div class="mt-5">UserId: </div>
     </div>
 </app-screen>
+<app-screen [backroute]="'/'" *ngIf="screen == 'Jobs'">
+    <div class="mt-3">
+        <div *ngFor="let item of Jobs" id="{{item.Code}}" class="White jobCode" (click)="JobCode(item.Code)">
+            <p style="display: inline; width: 25%; float: left;">{{item.Code}}</p>
+            <p style=" display: inline; width: 75%; float: right;">{{item.Description}}</p>
+        </div>
+    </div>
+</app-screen>
 <div class="menuaccess" (click)="menu()"></div>
 <div class="punchselection">
     <select style="width: 130px;" class="form-select" id="selection" (change)="Selected()">
         <option selected>Select User</option>
-        <option value="Bob">Bob</option>
-        <option value="Seth">Seth</option>
-        <option value="Kendra">Kendra</option>
+        <option value="{{item.ClockNumber}}" *ngFor="let item of Users">{{item.FirstName}} {{item.LastName}}</option>
     </select>
 </div>
+
 <div style="position: absolute; width: 100px; height: 175px; top: 20%; left: 75%;" class="finger" (click)="clockin()">
     <div class="scanner" style="position: absolute; width: 50px; height: 25%; top: 25%; left: 35%;" id="scanner"></div>
     </div>

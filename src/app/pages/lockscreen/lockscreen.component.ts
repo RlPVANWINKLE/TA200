@@ -14,12 +14,17 @@ export class LockscreenComponent implements OnInit{
     private _router: Router
   ){}
   ngOnInit(){
+    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
+    this.Users = users;
+    this.Jobs = JSON.parse(localStorage.getItem("JobList") || "[]")
+    this.ClockingIn = localStorage.getItem("ClockIn")
     this.intervalId = setInterval(() => {
       this.date = new Date();
     }, 1000);
-    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
-    this.Users = users;
+
   }
+  Jobs: Array<any>=[]
+  ClockingIn: any = ''
   Users: Array<any>=[]
   Visible:boolean = false
   UserId:string = ''
@@ -38,17 +43,33 @@ export class LockscreenComponent implements OnInit{
   }
   Selected(){
     let selectedindex = (<HTMLSelectElement>document.getElementById('selection')).selectedIndex;
-    this.User = this.Users[selectedindex-1];
+    localStorage.setItem("ClockIn", "Active")
+    this.User = this.Users[selectedindex-1]
+    console.log(this.User)
   }
   clockin(){
-    if(this.User.FingerPrint > 0){
-      this.screen = 'true';
+    if(this.User.fingerprintcount > 0){
+      this.screen = 'Jobs';
+      localStorage.setItem("ClockIn", "Active")
+      setInterval(()=>{
+        this.screen = 'lock';
+      }, 5000)
     }else{
       this.screen = 'false';
+      localStorage.setItem("ClockIn", "InActive")
+      setInterval(()=>{
+        this.screen = 'lock';
+      }, 5000)
     }
-
-    setInterval(()=>{
-      this.screen = 'lock';
-    }, 2000)
+  }
+  JobCode(id:string){
+    this.ClockingIn = localStorage.getItem("ClockIn")
+    if(this.ClockingIn != "Inactive"){
+      this.screen = 'true';
+      setInterval(()=>{
+        this.screen = 'lock';
+      }, 5000)
+      
+    }
   }
 }

@@ -1,0 +1,18 @@
+<app-screen [backroute]="'/main'">
+    <app-list-item
+    [Title]="'New Work Code'"
+    [Icon]="'fa-solid fa-plus-circle fa-2x White'"
+    ></app-list-item>
+    <app-list-item
+    [Title]="'All Work Codes'"
+    [Icon]="'fa-solid fa-newspaper fa-2x White'"
+    [child]="'all-work-codes'"
+    [parent]="''"
+    ></app-list-item>
+    <app-list-item
+    [Title]="'Work Code Options'"
+    [Icon]="'fa-solid fa-gear fa-2x White'"
+    child="work-code-options"
+    parent=""
+    ></app-list-item>
+</app-screen>

@@ -13,6 +13,15 @@ export class ManageComponent implements OnInit {
   ngOnInit(){
     let users = JSON.parse(localStorage.getItem("UserList") || "[]")
     this.Users = users;
+    // let EE1 = JSON.parse(localStorage.getItem("EE1")|| "[]")
+    // let EE2 = JSON.parse(localStorage.getItem("EE2")|| "[]")
+    // let EE3 = JSON.parse(localStorage.getItem("EE3")|| "[]")
+
+    // this.Users.push(EE1)
+    // this.Users.push(EE2)
+    // this.Users.push(EE3)
+
+    // console.log(EE1)
   }
 
   Users: Array<any>=[]
