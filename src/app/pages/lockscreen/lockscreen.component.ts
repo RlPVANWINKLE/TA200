@@ -10,19 +10,8 @@ import { Router, RouterLink } from '@angular/router';
 export class LockscreenComponent implements OnInit{
   public date = new Date();
   intervalId:any;
-  constructor(
-    private _router: Router
-  ){}
-  ngOnInit(){
-    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
-    this.Users = users;
-    this.Jobs = JSON.parse(localStorage.getItem("JobList") || "[]")
-    this.ClockingIn = localStorage.getItem("ClockIn")
-    this.intervalId = setInterval(() => {
-      this.date = new Date();
-    }, 1000);
-
-  }
+  APIKEY:any
+  ClientSecretKey:any
   Jobs: Array<any>=[]
   ClockingIn: any = ''
   Users: Array<any>=[]
@@ -30,6 +19,28 @@ export class LockscreenComponent implements OnInit{
   UserId:string = ''
   User: any
   screen:string = 'lock'
+  constructor(
+    private _router: Router
+  ){}
+  ngOnInit(){
+    this.APIKEY = localStorage.getItem("APIKEY")
+    this.ClientSecretKey = localStorage.getItem("ClientSecretKey");
+    let user = localStorage.getItem("ItemEdit");
+    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
+    this.Users = users;
+    users.forEach((element:any) => {
+      if(element.ClockNumber == user){
+        this.User = element
+      }
+    });
+    this.Jobs = JSON.parse(localStorage.getItem("JobList") || "[]")
+    this.ClockingIn = localStorage.getItem("ClockIn")
+    this.intervalId = setInterval(() => {
+      this.date = new Date();
+    }, 1000);
+
+  }
+
   menu(){
     if(localStorage.getItem("menuaccess") == "Verified"){
       this._router.navigate(["/main"], { skipLocationChange: true })
@@ -62,14 +73,26 @@ export class LockscreenComponent implements OnInit{
       }, 5000)
     }
   }
-  JobCode(id:string){
+  async JobCode(id:string){
+    let punchDate = new Date(new Date().setHours(new Date().getHours() - 6)).toJSON();
+    let InOut = localStorage.getItem("InOut");
     this.ClockingIn = localStorage.getItem("ClockIn")
     if(this.ClockingIn != "Inactive"){
       this.screen = 'true';
       setInterval(()=>{
         this.screen = 'lock';
       }, 5000)
-      
+      const response = await fetch(`https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/punch/${this.APIKEY}/${this.ClientSecretKey}/${this.User.EmployeeNumber}/${punchDate}/${InOut}/${id}`,{
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      })
+      const result = await response.json()
+      console.log(result)
     }
+  }
+  inout(i:string){
+    localStorage.setItem("InOut", i)
   }
 }

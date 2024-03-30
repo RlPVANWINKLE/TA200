@@ -54,4 +54,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   localStorage.setItem("ClockIn", "Inactive");
   localStorage.setItem("APIKEY","bc31cd5b-1057-413d-8d33-434a580852dc");
   localStorage.setItem("ClientSecretKey", "7fca3040-6820-49ea-bcfe-f6521329ebde");
+  localStorage.setItem("EENumber1", "000001")
+  localStorage.setItem("EENumber2", "000002")
+  localStorage.setItem("EENumber3", "000003")
 

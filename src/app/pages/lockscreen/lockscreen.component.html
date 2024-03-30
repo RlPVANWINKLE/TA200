@@ -59,6 +59,10 @@
         <option selected>Select User</option>
         <option value="{{item.ClockNumber}}" *ngFor="let item of Users">{{item.FirstName}} {{item.LastName}}</option>
     </select>
+    <div class="mt-4">
+        <div class="d-inline me-2 px-3 py-2 BGLGreen hover" style="width: 150px;" (click)="inout('0')">IN</div>
+        <div class="d-inline ms-2 BGRed p-2 hover" (click)="inout('1')">OUT</div>
+    </div>
 </div>
 
 <div style="position: absolute; width: 100px; height: 175px; top: 20%; left: 75%;" class="finger" (click)="clockin()">

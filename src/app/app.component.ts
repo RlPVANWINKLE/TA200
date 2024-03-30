@@ -9,6 +9,7 @@ declare var gtag:any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+    refresh = false
     locked: any;
     serverstatus: any = 'Disconnected'
     clockstatus:any = 'On'
@@ -19,9 +20,9 @@ export class AppComponent implements OnInit{
     width = visualViewport?.width;
     APIKEY:any = 'bc31cd5b-1057-413d-8d33-434a580852dc';
     ClientSecretKey: any ='7fca3040-6820-49ea-bcfe-f6521329ebde';
-    EEnumber1 = '000001';
-    EEnumber2 = '000002';
-    EEnumber3 = '000003';
+    EEnumber1:any = '000001';
+    EEnumber2:any = '000002';
+    EEnumber3:any = '000003';
     SideMenu:boolean = false
     Options = 'false'
     public ServerAddress = "testing";
@@ -30,6 +31,9 @@ export class AppComponent implements OnInit{
     
       ){}
   ngOnInit() {
+    this.EEnumber1=localStorage.getItem("EENumber1")
+    this.EEnumber2=localStorage.getItem("EENumber2")
+    this.EEnumber3=localStorage.getItem("EENumber3")
     this.APIKEY = localStorage.getItem("APIKEY")
     this.ClientSecretKey = localStorage.getItem("ClientSecretKey")
     this.Options = new URL(window.location.href).pathname
@@ -50,6 +54,7 @@ export class AppComponent implements OnInit{
   }
   Users: Array<any>=[]
   async SendEE(){
+    this.refresh = true
     let url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/EmployeeClockInfo/${this.APIKEY}/${this.ClientSecretKey}/${this.EEnumber1}`;
     let options = {
         method: 'GET',            
@@ -103,6 +108,7 @@ export class AppComponent implements OnInit{
     let printlog = [
         {
             ClockNumber: EE1.ClockNumber,
+            EmployeeNumber: EE1.EmployeeNumber,
             FirstName: EE1.FirstName,
             LastName: EE1.LastName,
             Admin: EE1.IsASupervisor,
@@ -111,6 +117,7 @@ export class AppComponent implements OnInit{
         },
         {
             ClockNumber: EE2.ClockNumber,
+            EmployeeNumber: EE2.EmployeeNumber,
             FirstName: EE2.FirstName,
             LastName: EE2.LastName,
             Admin: EE2.IsASupervisor,
@@ -119,6 +126,7 @@ export class AppComponent implements OnInit{
         },
         {
             ClockNumber: EE3.ClockNumber,
+            EmployeeNumber: EE2.EmployeeNumber,
             FirstName: EE3.FirstName,
             LastName: EE3.LastName,
             Admin: EE3.IsASupervisor,
@@ -127,6 +135,7 @@ export class AppComponent implements OnInit{
         }
     ]
     localStorage.setItem("UserList", JSON.stringify(printlog))
+    this.refresh=false
     this.SideMenuToggle();
     window.location.reload();
 
@@ -182,6 +191,7 @@ Scanner(){
     localStorage.setItem("backdooractive", "Inactive");
   }
   async SyncJobs(){
+    this.refresh = true
     let url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/jobs/${this.APIKEY}/${this.ClientSecretKey}`;
     let options = {
         method: 'GET',            
@@ -201,9 +211,30 @@ Scanner(){
         });
         localStorage.setItem("JobList", JSON.stringify(JobList));
         window.location.reload
+        this.refresh = false
         this.SideMenuToggle()
     } catch (error) {
         console.error(error);
     }
   }
+  async EEData(){
+    this.refresh = true
+    this.EEnumber1 = (<HTMLInputElement>document.getElementById("EE1")).value
+    this.EEnumber2 = (<HTMLInputElement>document.getElementById("EE2")).value
+    this.EEnumber3 = (<HTMLInputElement>document.getElementById("EE3")).value
+    localStorage.setItem("EENumber1", this.EEnumber1)
+    localStorage.setItem("EENumber2", this.EEnumber2)
+    localStorage.setItem("EENumber3", this.EEnumber3)
+    this.SendEE();
+  }
+  async APIKEYS(){
+    this.refresh = true
+    this.APIKEY = (<HTMLInputElement>document.getElementById("APIKEY")).value
+    this.ClientSecretKey = (<HTMLInputElement>document.getElementById("ClientSecretKey")).value
+    localStorage.setItem("APIKEY", this.APIKEY)
+    localStorage.setItem("ClientSecretKey", this.ClientSecretKey)
+    this.SendEE()
+    this.SyncJobs()
+  }
+  
 }
