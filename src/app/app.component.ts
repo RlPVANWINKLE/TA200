@@ -49,8 +49,9 @@ export class AppComponent implements OnInit{
           localStorage.setItem("Restarted", "1");
       }
     }, 500);
-    let expiryDate = new Date(new Date().setHours(new Date().getHours() - 6));
-    console.log(expiryDate.toJSON())
+    // let expiryDate = new Date(new Date().setHours(new Date().getHours() - 6));
+    // console.log(expiryDate.toJSON())
+    this.SendEE()
   }
   Users: Array<any>=[]
   async SendEE(){
