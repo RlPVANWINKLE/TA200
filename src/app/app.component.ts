@@ -51,7 +51,7 @@ export class AppComponent implements OnInit{
     }, 500);
     // let expiryDate = new Date(new Date().setHours(new Date().getHours() - 6));
     // console.log(expiryDate.toJSON())
-    this.SendEE()
+    // this.SendEE()
   }
   Users: Array<any>=[]
   async SendEE(){
