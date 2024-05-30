@@ -6,20 +6,20 @@
         <title>Support</title>
       </head>
 
-<body style="width: 800px; margin: auto;">
-  <div (click)="SideMenuToggle()" style=" width: 20%; border: 1px solid gray; color:black; margin: auto; margin-top: 25px;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center" *ngIf="Options == '/'">Options</div>
+<body style="width: 800px; margin: auto;" class="text-center">
+  <div (click)="SideMenuToggle()" style=" width: 20%; border: 1px solid gray; color:black; margin: auto; margin-top: 25px;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center btn" *ngIf="Options == '/'">Options</div>
   <div style="position: absolute; text-align: center;">
 
       <router-outlet></router-outlet>
   </div>
 
   <div style="position: absolute; width: 30vw; height: 100vh; top: 0; right: 0; background-color: azure;" class="animate__animated animate__slideInRight animate__faster	" *ngIf="SideMenu == true">
-    <div *ngIf="refresh == false">
-      <div><h1 class="text-center">Options</h1></div>
-      <div (click)="ftweb()" style=" width: 50%; border: 1px solid gray; color:black; margin: auto;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center mb-3">Run An Update</div>
-      <div (click)="lockclock()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGRed fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-lock fs-2x me-1"></i>Lock Clock</div>
-      <div (click)="SyncJobs()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGLGreen fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-refresh fs-2x me-1"></i>Sync Jobs</div>
-      <div (click)="SendEE()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-arrow-right fs-2x me-1"></i>Send Employees To clock</div>
+    <div *ngIf="refresh == false" class="text-center">
+      <div><h1 class="text-center mb-5 mt-2">Options</h1></div>
+      <div (click)="ftweb()" style=" width: 50%; border: 1px solid gray; color:black; margin: auto;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center mb-3 btn w-50 mx-3">Run An Update</div>
+      <div (click)="lockclock()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGRed fs-5 p-1 fw-bold pointer text-center mb-3 btn w-50 mx-3"> <i class="fa-solid fa-lock fs-2x me-1"></i>Lock Clock</div>
+      <div (click)="SyncJobs()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGLGreen fs-5 p-1 fw-bold pointer text-center mb-3 btn w-50 mx-3"> <i class="fa-solid fa-refresh fs-2x me-1"></i>Sync Jobs</div>
+      <div (click)="SendEE()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center mb-3 btn w-50 mx-3"> <i class="fa-solid fa-arrow-right fs-2x me-1"></i>Send Employees To clock</div>
       <form id="employeeIDs" class="text-center">
         <div>
           <label class="me-3 mb-3">Employee 1</label>
@@ -33,7 +33,7 @@
           <label class="me-3 mb-3">Employee 3</label>
           <input type="text" id="EE3" name="EE3" placeholder="{{EEnumber3}}">
         </div>
-        <div (click)="EEData()" style="background-color: lightblue; width: 100px; margin: auto;" class="hover">submit</div>
+        <div (click)="EEData()" style="background-color: lightblue; width: 100px; margin: auto;" class="hover btn">submit</div>
       </form>
       <form id="apikeys" class="text-center">
         <div>
@@ -44,7 +44,7 @@
           <label class="me-3 mb-3">ClientSecretKey</label>
           <input type="text" id="ClientSecretKey" name="ClientSecretKey">
         </div>
-        <div (click)="APIKEYS()" style="background-color: lightblue; width: 100px; margin: auto;" class="hover">submit</div>
+        <div (click)="APIKEYS()" style="background-color: lightblue; width: 100px; margin: auto;" class="hover btn">submit</div>
       </form>
     </div>
     <div *ngIf="refresh == true" class="text-center spin" style="margin-top: 50%;">
