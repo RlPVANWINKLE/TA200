@@ -18,8 +18,6 @@ export class AppComponent implements OnInit{
     title = 'TA200';
     height = visualViewport?.height;
     width = visualViewport?.width;
-    APIKEY:any = 'bc31cd5b-1057-413d-8d33-434a580852dc';
-    ClientSecretKey: any ='7fca3040-6820-49ea-bcfe-f6521329ebde';
     EEnumber1:any = '000001';
     EEnumber2:any = '000002';
     EEnumber3:any = '000003';
@@ -34,8 +32,6 @@ export class AppComponent implements OnInit{
     this.EEnumber1=localStorage.getItem("EENumber1")
     this.EEnumber2=localStorage.getItem("EENumber2")
     this.EEnumber3=localStorage.getItem("EENumber3")
-    this.APIKEY = localStorage.getItem("APIKEY")
-    this.ClientSecretKey = localStorage.getItem("ClientSecretKey")
     this.Options = new URL(window.location.href).pathname
     this.serverstatus = localStorage.getItem("ServerStatus");
     this.intervalId = setInterval(() => {
@@ -54,93 +50,7 @@ export class AppComponent implements OnInit{
     // this.SendEE()
   }
   Users: Array<any>=[]
-  async SendEE(){
-    this.refresh = true
-    let url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/EmployeeClockInfo/${this.APIKEY}/${this.ClientSecretKey}/${this.EEnumber1}`;
-    let options = {
-        method: 'GET',            
-    };
 
-    try {
-        const response = await fetch(url, options);
-        let result = await response.text();
-        console.log(result)
-        let EE = JSON.parse(result || "[]")
-        localStorage.setItem("EE1", JSON.stringify(EE));
-    } catch (error) {
-        console.error(error);
-    }
-    url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/EmployeeClockInfo/${this.APIKEY}/${this.ClientSecretKey}/${this.EEnumber2}`;
-    options = {
-        method: 'GET',            
-    };
-
-    try {
-        const response = await fetch(url, options);
-        let result = await response.text();
-        console.log(result)
-        let EE = JSON.parse(result || "[]")
-        localStorage.setItem("EE2", JSON.stringify(EE));
-    } catch (error) {
-        console.error(error);
-    }
-    url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/EmployeeClockInfo/${this.APIKEY}/${this.ClientSecretKey}/${this.EEnumber3}`;
-    options = {
-        method: 'GET',            
-    };
-
-    try {
-        const response = await fetch(url, options);
-        let result = await response.text();
-        console.log(result)
-        let EE = JSON.parse(result || "[]")
-        localStorage.setItem("EE3", JSON.stringify(EE));
-    } catch (error) {
-        console.error(error);
-    }
-
-    let EE1 = JSON.parse(localStorage.getItem("EE1")|| "[]")
-    let EE2 = JSON.parse(localStorage.getItem("EE2")|| "[]")
-    let EE3 = JSON.parse(localStorage.getItem("EE3")|| "[]")
-
-    this.Users.push(EE1)
-    this.Users.push(EE2)
-    this.Users.push(EE3)
-    let printlog = [
-        {
-            ClockNumber: EE1.ClockNumber,
-            EmployeeNumber: EE1.EmployeeNumber,
-            FirstName: EE1.FirstName,
-            LastName: EE1.LastName,
-            Admin: EE1.IsASupervisor,
-            fingerprintcount:0,
-            fingerprints:[]
-        },
-        {
-            ClockNumber: EE2.ClockNumber,
-            EmployeeNumber: EE2.EmployeeNumber,
-            FirstName: EE2.FirstName,
-            LastName: EE2.LastName,
-            Admin: EE2.IsASupervisor,
-            fingerprintcount:1,
-            fingerprints:[6]
-        },
-        {
-            ClockNumber: EE3.ClockNumber,
-            EmployeeNumber: EE2.EmployeeNumber,
-            FirstName: EE3.FirstName,
-            LastName: EE3.LastName,
-            Admin: EE3.IsASupervisor,
-            fingerprintcount:0,
-            fingerprints:[]
-        }
-    ]
-    localStorage.setItem("UserList", JSON.stringify(printlog))
-    this.refresh=false
-    this.SideMenuToggle();
-    window.location.reload();
-
-}
 SideMenuToggle(){
     this.SideMenu = !this.SideMenu
 }
@@ -191,33 +101,7 @@ Scanner(){
     localStorage.setItem("menuaccess", "Verified");
     localStorage.setItem("backdooractive", "Inactive");
   }
-  async SyncJobs(){
-    this.refresh = true
-    let url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/jobs/${this.APIKEY}/${this.ClientSecretKey}`;
-    let options = {
-        method: 'GET',            
-    };
 
-    try {
-        const response = await fetch(url, options);
-        let result = await response.text();
-        console.log(result)
-        let jobs: any[] = []
-        let JobList: any[] = []
-        jobs = JSON.parse(result || "[]")
-        jobs.forEach(element => {
-          if(element.Code.match(/^[0-9]+$/)){
-            JobList.push(element)
-          }
-        });
-        localStorage.setItem("JobList", JSON.stringify(JobList));
-        window.location.reload
-        this.refresh = false
-        this.SideMenuToggle()
-    } catch (error) {
-        console.error(error);
-    }
-  }
   async EEData(){
     this.refresh = true
     this.EEnumber1 = (<HTMLInputElement>document.getElementById("EE1")).value
@@ -226,16 +110,6 @@ Scanner(){
     localStorage.setItem("EENumber1", this.EEnumber1)
     localStorage.setItem("EENumber2", this.EEnumber2)
     localStorage.setItem("EENumber3", this.EEnumber3)
-    this.SendEE();
-  }
-  async APIKEYS(){
-    this.refresh = true
-    this.APIKEY = (<HTMLInputElement>document.getElementById("APIKEY")).value
-    this.ClientSecretKey = (<HTMLInputElement>document.getElementById("ClientSecretKey")).value
-    localStorage.setItem("APIKEY", this.APIKEY)
-    localStorage.setItem("ClientSecretKey", this.ClientSecretKey)
-    this.SendEE()
-    this.SyncJobs()
   }
   
 }
