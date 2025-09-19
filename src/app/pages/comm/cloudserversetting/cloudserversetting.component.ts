@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./cloudserversetting.component.scss']
 })
 export class CloudserversettingComponent {
-  ServerAddress = localStorage.getItem("URLAddress");
+  ServerAddress = sessionStorage.getItem("URLAddress");
 }

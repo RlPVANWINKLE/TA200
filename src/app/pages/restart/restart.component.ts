@@ -14,9 +14,9 @@ export class RestartComponent implements OnInit{
     setTimeout(()=>{
       this._router.navigate(["/"])
     }, 4000)
-    this.serverstatus = localStorage.getItem("ServerStatus");
+    this.serverstatus = sessionStorage.getItem("ServerStatus");
     this.intervalId = setInterval(() => {
-      this.serverstatus = localStorage.getItem("ServerStatus");
+      this.serverstatus = sessionStorage.getItem("ServerStatus");
       if(this.serverstatus == "Disconnected"){
         (<HTMLSpanElement>document.getElementById("status")).style.color = 'Red'
       }else if(this.serverstatus == "Connected")

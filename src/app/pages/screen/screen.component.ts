@@ -25,8 +25,8 @@ export class ScreenComponent implements OnInit{
 
   ){}
   ngOnInit(){
-    this.APIKEY = localStorage.getItem("APIKEY");
-    this.ClientSecretKey = localStorage.getItem("ClientSecretKey");
+    this.APIKEY = sessionStorage.getItem("APIKEY");
+    this.ClientSecretKey = sessionStorage.getItem("ClientSecretKey");
     if (this.imageName) {
       this.imageName = "./assets/images/" + this.imageName;
     }
@@ -35,9 +35,9 @@ export class ScreenComponent implements OnInit{
     }else{
       (<HTMLDivElement>document.getElementById('background')).style.background = 'black'
     }
-    this.serverstatus = localStorage.getItem("ServerStatus");
+    this.serverstatus = sessionStorage.getItem("ServerStatus");
     this.intervalId = setInterval(() => {
-      this.serverstatus = localStorage.getItem("ServerStatus");
+      this.serverstatus = sessionStorage.getItem("ServerStatus");
       if(this.serverstatus == "Disconnected"){
         (<HTMLSpanElement>document.getElementById("status")).style.color = 'Red'}
       // }else if(this.serverstatus == "Connected")
@@ -45,19 +45,19 @@ export class ScreenComponent implements OnInit{
       //   (<HTMLSpanElement>document.getElementById("status")).style.color = 'LightGreen'
 
       // }
-      this.clockstatus = localStorage.getItem("ClockStatus");
-      var restarted = localStorage.getItem("Restarted");
+      this.clockstatus = sessionStorage.getItem("ClockStatus");
+      var restarted = sessionStorage.getItem("Restarted");
       if(this.clockstatus != 'On' && restarted == "0"){
           this._router.navigate(["/clock-restart"], { skipLocationChange: true });
-          localStorage.setItem("Restarted", "1");
+          sessionStorage.setItem("Restarted", "1");
       }
 
     }, 500);
   }
   Scanner(){
-    localStorage.setItem("menuaccess", "Verified")
-    var verified = localStorage.getItem("menuaccess");
-    var BDActive = localStorage.getItem("backdooractive");
+    sessionStorage.setItem("menuaccess", "Verified")
+    var verified = sessionStorage.getItem("menuaccess");
+    var BDActive = sessionStorage.getItem("backdooractive");
     if(verified == "Verified" && BDActive != "Active"){
       this._router.navigate(["/main"], { skipLocationChange: true })
     }
@@ -73,7 +73,7 @@ export class ScreenComponent implements OnInit{
     window.open(url, 'ftwebster', 'width=350px, height=400px');
   }
   URLTEST(){
-    localStorage.setItem("URLAddress", "Test");
+    sessionStorage.setItem("URLAddress", "Test");
   }
   backroutes(){
     if(this.backroute == '/'){
@@ -88,16 +88,16 @@ export class ScreenComponent implements OnInit{
     var psswd = new Date();
     var pssdHours = psswd.getHours().toString();
     var password = ((9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))*(9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))).toString();
-    localStorage.setItem("menuaccess", "Unverified");
-    localStorage.setItem("backdooractive", "Active");
-    localStorage.setItem("backdoorpassword", password);
+    sessionStorage.setItem("menuaccess", "Unverified");
+    sessionStorage.setItem("backdooractive", "Active");
+    sessionStorage.setItem("backdoorpassword", password);
     this._router.navigate(['/backdoor-prompt'], { skipLocationChange: true });
   }
   unlockclock(){
     this.locked = false;
     this._router.navigate(['/'],{ skipLocationChange: true })
-    localStorage.setItem("menuaccess", "Verified");
-    localStorage.setItem("backdooractive", "Inactive");
+    sessionStorage.setItem("menuaccess", "Verified");
+    sessionStorage.setItem("backdooractive", "Inactive");
   }
   SendEE(){
 
@@ -120,7 +120,7 @@ export class ScreenComponent implements OnInit{
             JobList.push(element)
           }
         });
-        localStorage.setItem("JobList", JSON.stringify(JobList));
+        sessionStorage.setItem("JobList", JSON.stringify(JobList));
     } catch (error) {
         console.error(error);
     }

@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllworkcodesComponent implements OnInit{
   ngOnInit(){
-    this.Jobs = JSON.parse(localStorage.getItem("JobList") || "[]")
-    // this.ClockingIn = localStorage.getItem("ClockIn")
+    this.Jobs = JSON.parse(sessionStorage.getItem("JobList") || "[]")
+    // this.ClockingIn = sessionStorage.getItem("ClockIn")
   }
   Jobs: Array<any>=[]
   ClockingIn: any = ''

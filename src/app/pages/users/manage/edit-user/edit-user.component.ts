@@ -10,10 +10,10 @@ export class EditUserComponent implements OnInit{
     private _router: Router
   ){}
   ngOnInit() {
-    let user = localStorage.getItem("ItemEdit");
+    let user = sessionStorage.getItem("ItemEdit");
     // this.UserId = parseInt(user || "[]")
-    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
-    let fingerprints = JSON.parse(localStorage.getItem("PrintLog") || "[]")
+    let users = JSON.parse(sessionStorage.getItem("UserList") || "[]")
+    let fingerprints = JSON.parse(sessionStorage.getItem("PrintLog") || "[]")
     // this.User = users[this.UserId-1];
     users.forEach((element: any) => {
       if(element.ClockNumber == user){

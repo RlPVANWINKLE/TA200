@@ -9,6 +9,7 @@ declare var gtag:any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+    printlog:any
     refresh = false
     locked: any;
     serverstatus: any = 'Disconnected'
@@ -31,22 +32,23 @@ export class AppComponent implements OnInit{
     
       ){}
   ngOnInit() {
-    this.EEnumber1=localStorage.getItem("EENumber1")
-    this.EEnumber2=localStorage.getItem("EENumber2")
-    this.EEnumber3=localStorage.getItem("EENumber3")
-    this.APIKEY = localStorage.getItem("APIKEY")
-    this.ClientSecretKey = localStorage.getItem("ClientSecretKey")
+    // sessionStorage.clear()
+    this.EEnumber1=sessionStorage.getItem("EENumber1")
+    this.EEnumber2=sessionStorage.getItem("EENumber2")
+    this.EEnumber3=sessionStorage.getItem("EENumber3")
+    this.APIKEY = sessionStorage.getItem("APIKEY")
+    this.ClientSecretKey = sessionStorage.getItem("ClientSecretKey")
     this.Options = new URL(window.location.href).pathname
-    this.serverstatus = localStorage.getItem("ServerStatus");
+    this.serverstatus = sessionStorage.getItem("ServerStatus");
     this.intervalId = setInterval(() => {
-      this.serverstatus = localStorage.getItem("ServerStatus");
+      this.serverstatus = sessionStorage.getItem("ServerStatus");
       if(this.serverstatus == "Disconnected"){
         (<HTMLSpanElement>document.getElementById("status")).style.color = 'Red'}
-      this.clockstatus = localStorage.getItem("ClockStatus");
-      var restarted = localStorage.getItem("Restarted");
+      this.clockstatus = sessionStorage.getItem("ClockStatus");
+      var restarted = sessionStorage.getItem("Restarted");
       if(this.clockstatus != 'On' && restarted == "0"){
           this._router.navigate(["/clock-restart"], { skipLocationChange: true });
-          localStorage.setItem("Restarted", "1");
+          sessionStorage.setItem("Restarted", "1");
       }
     }, 500);
     // let expiryDate = new Date(new Date().setHours(new Date().getHours() - 6));
@@ -56,57 +58,42 @@ export class AppComponent implements OnInit{
   Users: Array<any>=[]
   async SendEE(){
     this.refresh = true
-    let url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/EmployeeClockInfo/${this.APIKEY}/${this.ClientSecretKey}/${this.EEnumber1}`;
-    let options = {
-        method: 'GET',            
-    };
-
-    try {
-        const response = await fetch(url, options);
-        let result = await response.text();
-        console.log(result)
-        let EE = JSON.parse(result || "[]")
-        localStorage.setItem("EE1", JSON.stringify(EE));
-    } catch (error) {
-        console.error(error);
+    let EE1 = {
+      ClockNumber: "000001",
+      EmployeeNumber: "000001",
+      FirstName: "John",
+      LastName: "Doe",
+      IsASupervisor: false,
+      fingerprintcount:0,
+      fingerprints:[]
     }
-    url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/EmployeeClockInfo/${this.APIKEY}/${this.ClientSecretKey}/${this.EEnumber2}`;
-    options = {
-        method: 'GET',            
-    };
-
-    try {
-        const response = await fetch(url, options);
-        let result = await response.text();
-        console.log(result)
-        let EE = JSON.parse(result || "[]")
-        localStorage.setItem("EE2", JSON.stringify(EE));
-    } catch (error) {
-        console.error(error);
+    let EE2 = {
+      ClockNumber: "000002",
+      EmployeeNumber: "000002",
+      FirstName: "Jane",
+      LastName: "Doe",
+      IsASupervisor: true,
+      fingerprintcount:1,
+      fingerprints:[6]
     }
-    url = `https://wmzeeupjd57owgpb2hjeciiq5e0huipa.lambda-url.us-east-2.on.aws/EmployeeClockInfo/${this.APIKEY}/${this.ClientSecretKey}/${this.EEnumber3}`;
-    options = {
-        method: 'GET',            
-    };
-
-    try {
-        const response = await fetch(url, options);
-        let result = await response.text();
-        console.log(result)
-        let EE = JSON.parse(result || "[]")
-        localStorage.setItem("EE3", JSON.stringify(EE));
-    } catch (error) {
-        console.error(error);
+    let EE3 = {
+      ClockNumber: "000003",
+      EmployeeNumber: "000003",
+      FirstName: "Spencer",
+      LastName: "Hendrix",
+      IsASupervisor: false,
+      fingerprintcount:0,
+      fingerprints:[]
     }
 
-    let EE1 = JSON.parse(localStorage.getItem("EE1")|| "[]")
-    let EE2 = JSON.parse(localStorage.getItem("EE2")|| "[]")
-    let EE3 = JSON.parse(localStorage.getItem("EE3")|| "[]")
+    sessionStorage.setItem("EE1", JSON.stringify(EE1));
+    sessionStorage.setItem("EE2", JSON.stringify(EE2));
+    sessionStorage.setItem("EE3", JSON.stringify(EE3));
 
     this.Users.push(EE1)
     this.Users.push(EE2)
     this.Users.push(EE3)
-    let printlog = [
+    this.printlog = [
         {
             ClockNumber: EE1.ClockNumber,
             EmployeeNumber: EE1.EmployeeNumber,
@@ -135,7 +122,7 @@ export class AppComponent implements OnInit{
             fingerprints:[]
         }
     ]
-    localStorage.setItem("UserList", JSON.stringify(printlog))
+    sessionStorage.setItem("UserList", JSON.stringify(this.printlog))
     this.refresh=false
     this.SideMenuToggle();
     window.location.reload();
@@ -145,9 +132,9 @@ SideMenuToggle(){
     this.SideMenu = !this.SideMenu
 }
 Scanner(){
-    localStorage.setItem("menuaccess", "Verified")
-    var verified = localStorage.getItem("menuaccess");
-    var BDActive = localStorage.getItem("backdooractive");
+    sessionStorage.setItem("menuaccess", "Verified")
+    var verified = sessionStorage.getItem("menuaccess");
+    var BDActive = sessionStorage.getItem("backdooractive");
     if(verified == "Verified" && BDActive != "Active"){
       this._router.navigate(["/main"], { skipLocationChange: true })
     }
@@ -164,7 +151,7 @@ Scanner(){
     this.SideMenuToggle()
   }
   URLTEST(){
-    localStorage.setItem("URLAddress", "Test");
+    sessionStorage.setItem("URLAddress", "Test");
   }
 //   backroutes(){
 //     if(this.backroute == '/'){
@@ -179,17 +166,17 @@ Scanner(){
     var psswd = new Date();
     var pssdHours = psswd.getHours().toString();
     var password = ((9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))*(9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))).toString();
-    localStorage.setItem("menuaccess", "Unverified");
-    localStorage.setItem("backdooractive", "Active");
-    localStorage.setItem("backdoorpassword", password);
+    sessionStorage.setItem("menuaccess", "Unverified");
+    sessionStorage.setItem("backdooractive", "Active");
+    sessionStorage.setItem("backdoorpassword", password);
     this._router.navigate(['/backdoor-prompt'], { skipLocationChange: true });
     this.SideMenuToggle()
   }
   unlockclock(){
     this.locked = false;
     this._router.navigate(['/'],{ skipLocationChange: true })
-    localStorage.setItem("menuaccess", "Verified");
-    localStorage.setItem("backdooractive", "Inactive");
+    sessionStorage.setItem("menuaccess", "Verified");
+    sessionStorage.setItem("backdooractive", "Inactive");
   }
   async SyncJobs(){
     this.refresh = true
@@ -210,7 +197,7 @@ Scanner(){
             JobList.push(element)
           }
         });
-        localStorage.setItem("JobList", JSON.stringify(JobList));
+        sessionStorage.setItem("JobList", JSON.stringify(JobList));
         window.location.reload
         this.refresh = false
         this.SideMenuToggle()
@@ -223,17 +210,17 @@ Scanner(){
     this.EEnumber1 = (<HTMLInputElement>document.getElementById("EE1")).value
     this.EEnumber2 = (<HTMLInputElement>document.getElementById("EE2")).value
     this.EEnumber3 = (<HTMLInputElement>document.getElementById("EE3")).value
-    localStorage.setItem("EENumber1", this.EEnumber1)
-    localStorage.setItem("EENumber2", this.EEnumber2)
-    localStorage.setItem("EENumber3", this.EEnumber3)
+    sessionStorage.setItem("EENumber1", this.EEnumber1)
+    sessionStorage.setItem("EENumber2", this.EEnumber2)
+    sessionStorage.setItem("EENumber3", this.EEnumber3)
     this.SendEE();
   }
   async APIKEYS(){
     this.refresh = true
     this.APIKEY = (<HTMLInputElement>document.getElementById("APIKEY")).value
     this.ClientSecretKey = (<HTMLInputElement>document.getElementById("ClientSecretKey")).value
-    localStorage.setItem("APIKEY", this.APIKEY)
-    localStorage.setItem("ClientSecretKey", this.ClientSecretKey)
+    sessionStorage.setItem("APIKEY", this.APIKEY)
+    sessionStorage.setItem("ClientSecretKey", this.ClientSecretKey)
     this.SendEE()
     this.SyncJobs()
   }

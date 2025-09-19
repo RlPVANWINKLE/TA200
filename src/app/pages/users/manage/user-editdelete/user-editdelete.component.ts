@@ -10,9 +10,9 @@ export class UserEditdeleteComponent implements OnInit{
     private _router: Router
   ){}
   ngOnInit() {
-    let user = localStorage.getItem("ItemEdit");
+    let user = sessionStorage.getItem("ItemEdit");
     this.UserId = parseInt(user || "[]")
-    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
+    let users = JSON.parse(sessionStorage.getItem("UserList") || "[]")
     // this.User = users[this.UserId-1];
     users.forEach((element: any) => {
       if(element.ClockNumber == user){

@@ -23,18 +23,18 @@ export class LockscreenComponent implements OnInit{
     private _router: Router
   ){}
   ngOnInit(){
-    this.APIKEY = localStorage.getItem("APIKEY")
-    this.ClientSecretKey = localStorage.getItem("ClientSecretKey");
-    let user = localStorage.getItem("ItemEdit");
-    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
+    this.APIKEY = sessionStorage.getItem("APIKEY")
+    this.ClientSecretKey = sessionStorage.getItem("ClientSecretKey");
+    let user = sessionStorage.getItem("ItemEdit");
+    let users = JSON.parse(sessionStorage.getItem("UserList") || "[]")
     this.Users = users;
     users.forEach((element:any) => {
       if(element.ClockNumber == user){
         this.User = element
       }
     });
-    this.Jobs = JSON.parse(localStorage.getItem("JobList") || "[]")
-    this.ClockingIn = localStorage.getItem("ClockIn")
+    this.Jobs = JSON.parse(sessionStorage.getItem("JobList") || "[]")
+    this.ClockingIn = sessionStorage.getItem("ClockIn")
     this.intervalId = setInterval(() => {
       this.date = new Date();
     }, 1000);
@@ -42,10 +42,10 @@ export class LockscreenComponent implements OnInit{
   }
 
   menu(){
-    if(localStorage.getItem("menuaccess") == "Verified"){
+    if(sessionStorage.getItem("menuaccess") == "Verified"){
       this._router.navigate(["/main"], { skipLocationChange: true })
     }else{
-      // localStorage.setItem("menuaccess", "Verified");
+      // sessionStorage.setItem("menuaccess", "Verified");
     }
 
   }
@@ -54,20 +54,20 @@ export class LockscreenComponent implements OnInit{
   }
   Selected(){
     let selectedindex = (<HTMLSelectElement>document.getElementById('selection')).selectedIndex;
-    localStorage.setItem("ClockIn", "Active")
+    sessionStorage.setItem("ClockIn", "Active")
     this.User = this.Users[selectedindex-1]
     console.log(this.User)
   }
   clockin(){
     if(this.User.fingerprintcount > 0){
       this.screen = 'Jobs';
-      localStorage.setItem("ClockIn", "Active")
+      sessionStorage.setItem("ClockIn", "Active")
       setInterval(()=>{
         this.screen = 'lock';
       }, 5000)
     }else{
       this.screen = 'false';
-      localStorage.setItem("ClockIn", "InActive")
+      sessionStorage.setItem("ClockIn", "InActive")
       setInterval(()=>{
         this.screen = 'lock';
       }, 5000)
@@ -75,8 +75,8 @@ export class LockscreenComponent implements OnInit{
   }
   async JobCode(id:string){
     let punchDate = new Date(new Date().setHours(new Date().getHours() - 6)).toJSON();
-    let InOut = localStorage.getItem("InOut");
-    this.ClockingIn = localStorage.getItem("ClockIn")
+    let InOut = sessionStorage.getItem("InOut");
+    this.ClockingIn = sessionStorage.getItem("ClockIn")
     if(this.ClockingIn != "Inactive"){
       this.screen = 'true';
       setInterval(()=>{
@@ -93,6 +93,6 @@ export class LockscreenComponent implements OnInit{
     }
   }
   inout(i:string){
-    localStorage.setItem("InOut", i)
+    sessionStorage.setItem("InOut", i)
   }
 }

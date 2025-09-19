@@ -20,12 +20,12 @@ export class BackdoorpromptComponent implements OnInit{
       var psswd = new Date();
       var pssdHours = psswd.getHours().toString();
       var password = ((9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))*(9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))).toString();
-      localStorage.setItem("backdoorpassword", password);
+      sessionStorage.setItem("backdoorpassword", password);
       this.intervalId = setInterval(() => {
         psswd = new Date();
         pssdHours = psswd.getHours().toString();
         password = ((9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))*(9999-parseInt(pssdHours + (('0'+psswd.getMinutes()).slice(-2)).toString()))).toString();
-        localStorage.setItem("backdoorpassword", password);
+        sessionStorage.setItem("backdoorpassword", password);
       }, 1000);
     }
   OK(){
@@ -41,7 +41,7 @@ export class BackdoorpromptComponent implements OnInit{
   }
   OK2(){
     var clockpassword = (<HTMLInputElement>document.getElementById('BDPassword'));
-    var BDpsswd = localStorage.getItem("backdoorpassword");
+    var BDpsswd = sessionStorage.getItem("backdoorpassword");
     if(BDpsswd == clockpassword.value){
       this._router.navigate(['/main'], { skipLocationChange: true })
       clockpassword.style.backgroundColor = 'White'

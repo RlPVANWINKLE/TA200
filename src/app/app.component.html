@@ -20,7 +20,7 @@
       <div (click)="lockclock()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGRed fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-lock fs-2x me-1"></i>Lock Clock</div>
       <div (click)="SyncJobs()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGLGreen fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-refresh fs-2x me-1"></i>Sync Jobs</div>
       <div (click)="SendEE()" style=" width: 50%; border: 1px solid gray; margin: auto;" class="BGLBlue fs-5 p-1 fw-bold pointer text-center mb-3"> <i class="fa-solid fa-arrow-right fs-2x me-1"></i>Send Employees To clock</div>
-      <form id="employeeIDs" class="text-center">
+      <!-- <form id="employeeIDs" class="text-center">
         <div>
           <label class="me-3 mb-3">Employee 1</label>
           <input type="text" id="EE1" name="EE1" placeholder="{{EEnumber1}}">
@@ -45,7 +45,7 @@
           <input type="text" id="ClientSecretKey" name="ClientSecretKey">
         </div>
         <div (click)="APIKEYS()" style="background-color: lightblue; width: 100px; margin: auto;" class="hover">submit</div>
-      </form>
+      </form> -->
     </div>
     <div *ngIf="refresh == true" class="text-center spin" style="margin-top: 50%;">
       <i class="fa-solid fa-refresh fa-8x"></i>

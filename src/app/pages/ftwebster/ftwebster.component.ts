@@ -21,14 +21,14 @@ constructor(
 ) {}
 
   ngOnInit(){
-    this.serveraddress = localStorage.getItem("URLAddress")?.toString()
+    this.serveraddress = sessionStorage.getItem("URLAddress")?.toString()
 
   }
 connect(){
   var inputValue = (<HTMLInputElement>document.getElementById('ip')).value;
 
   this.updbtn = (<HTMLInputElement>document.getElementById('btnupd')).style.display;
-  var IPADDRESS = localStorage.getItem("IPAddress");
+  var IPADDRESS = sessionStorage.getItem("IPAddress");
   if(inputValue == IPADDRESS){
     this.connected = true;
     (<HTMLInputElement>document.getElementById('btnconn')).style.display = 'none';
@@ -51,11 +51,11 @@ update(){
         if(inputdnscheck == true){
           this.updated = true;
           (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = " ";
-          localStorage.setItem("URLAddress", inputURL);
+          sessionStorage.setItem("URLAddress", inputURL);
           (<HTMLInputElement>document.getElementById('btnconn')).style.display = 'none';
           (<HTMLInputElement>document.getElementById('btnres')).style.display = 'inline-block';
           (<HTMLInputElement>document.getElementById('btnupd')).style.display = 'none';
-          localStorage.setItem("ServerStatus", "Connected");
+          sessionStorage.setItem("ServerStatus", "Connected");
         }
         else{
           (<HTMLParagraphElement>document.getElementById("wrongurl")).innerText = "Your DNS server is not checked"
@@ -79,7 +79,7 @@ update(){
   }
 }
 restart(){
-  localStorage.setItem("ClockStatus", "Restart");
+  sessionStorage.setItem("ClockStatus", "Restart");
   window.close();
 }
 }

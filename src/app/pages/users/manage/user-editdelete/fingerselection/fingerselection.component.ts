@@ -11,10 +11,10 @@ export class FingerselectionComponent implements OnInit{
     private _router: Router
   ){}
   ngOnInit() {
-    let user = localStorage.getItem("ItemEdit");
+    let user = sessionStorage.getItem("ItemEdit");
     // this.UserId = parseInt(user || "[]")
-    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
-    localStorage.setItem("UserList", JSON.stringify(users))
+    let users = JSON.parse(sessionStorage.getItem("UserList") || "[]")
+    sessionStorage.setItem("UserList", JSON.stringify(users))
     users.forEach((element:any) => {
       if(element.ClockNumber == user){
         this.User = element
@@ -42,7 +42,7 @@ export class FingerselectionComponent implements OnInit{
   Enroll(fingerId:any){
     if(this.User.fingerprints.includes(fingerId) != true){
       this._router.navigate(['/enrollfingerprint'], {skipLocationChange:true})
-      localStorage.setItem("SelectedFinger", fingerId);
+      sessionStorage.setItem("SelectedFinger", fingerId);
     }
   }
 }

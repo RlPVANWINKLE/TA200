@@ -11,11 +11,11 @@ export class ManageComponent implements OnInit {
     private _router: Router
   ){}
   ngOnInit(){
-    let users = JSON.parse(localStorage.getItem("UserList") || "[]")
+    let users = JSON.parse(sessionStorage.getItem("UserList") || "[]")
     this.Users = users;
-    // let EE1 = JSON.parse(localStorage.getItem("EE1")|| "[]")
-    // let EE2 = JSON.parse(localStorage.getItem("EE2")|| "[]")
-    // let EE3 = JSON.parse(localStorage.getItem("EE3")|| "[]")
+    // let EE1 = JSON.parse(sessionStorage.getItem("EE1")|| "[]")
+    // let EE2 = JSON.parse(sessionStorage.getItem("EE2")|| "[]")
+    // let EE3 = JSON.parse(sessionStorage.getItem("EE3")|| "[]")
 
     // this.Users.push(EE1)
     // this.Users.push(EE2)
@@ -28,7 +28,7 @@ export class ManageComponent implements OnInit {
   Visible:boolean = false
   UserId:string = ''
   userClicked(id: string){
-    localStorage.setItem("ItemEdit", id)
+    sessionStorage.setItem("ItemEdit", id)
     this.Visible = this.Visible?false:true;
     this.UserId = id;
     this._router.navigate(['edit-delete'], { skipLocationChange: true });

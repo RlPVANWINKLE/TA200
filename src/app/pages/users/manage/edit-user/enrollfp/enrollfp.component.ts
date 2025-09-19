@@ -41,9 +41,9 @@ export class EnrollfpComponent {
         (<HTMLDivElement>document.getElementById('fingerprint')).style.backgroundColor = 'Green';
         (<HTMLDivElement>document.getElementById('fingerprint')).innerHTML = '<i class="fa-solid fa-check fs-1 mt-1 LightGreen"></i>'
         let UserId:any = 0;
-        UserId = localStorage.getItem("ItemEdit");
-        let FingerIndex = localStorage.getItem("SelectedFinger");
-        let users = JSON.parse(localStorage.getItem("UserList") || "[]");
+        UserId = sessionStorage.getItem("ItemEdit");
+        let FingerIndex = sessionStorage.getItem("SelectedFinger");
+        let users = JSON.parse(sessionStorage.getItem("UserList") || "[]");
         console.log(users)
         let user:any;
         users.forEach((element:any) => {
@@ -53,7 +53,7 @@ export class EnrollfpComponent {
             console.log(element)
           }
         });
-        localStorage.setItem("UserList", JSON.stringify(users))
+        sessionStorage.setItem("UserList", JSON.stringify(users))
         setTimeout(()=>{
           this._router.navigate(['/useredit'],{skipLocationChange:true})
         }, 1500)
